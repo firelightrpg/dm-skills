@@ -22,13 +22,6 @@ This skill captures the workflow for updating placed placeholder tokens in an ex
 
 AboveVTT stores custom monster stat blocks in the root `notes` dictionary with `"statBlock": True`. When a user clicks the stat block button on a token in AboveVTT, it renders `note["text"]` and parses rollable dice/attack syntax (`+X to hit`, `XdY + Z`) directly from the HTML.
 
----
-
-<img width="5120" height="2880" alt="image" src="https://github.com/user-attachments/assets/4b315511-899b-4ae7-a688-784c24c97a76" />
-
----
-
-
 ### Note Object Schema
 
 ```python
