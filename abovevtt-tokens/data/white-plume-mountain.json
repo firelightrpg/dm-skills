@@ -1,0 +1,630 @@
+[
+ {
+  "name": "Mossmutter",
+  "title": "Mossmutter, the Fungal False Keraptis",
+  "aliases": [
+   "Mossmutter"
+  ],
+  "slug": "mossmutter",
+  "size": "Huge",
+  "meta": "Huge Plant, Lawful Evil",
+  "ac": 18,
+  "ac_note": "chitinous bark",
+  "hp": 230,
+  "hp_dice": "20d12 + 100",
+  "speed": "0 ft. (rooted)",
+  "abilities": [
+   22,
+   8,
+   20,
+   18,
+   16,
+   16
+  ],
+  "saves": "Con +10, Int +9, Wis +8",
+  "save_bonus": {
+   "2": 10,
+   "3": 9,
+   "4": 8
+  },
+  "resists": "bludgeoning, piercing",
+  "immunes": "cold, poison",
+  "cond_immunes": "charmed, exhaustion, frightened, paralyzed, petrified, poisoned, prone",
+  "senses": "blindsight 120 ft., telepathy 120 ft. (speaks only through Saprophis or Skin Puppets), passive Perception 13",
+  "languages": "Common, Undercommon, telepathy",
+  "cr": "13",
+  "xp": "10,000",
+  "pb": 5,
+  "sections": {
+   "Traits": [
+    [
+     "Innate Spellcasting",
+     "Spell save DC 17, +9 to hit with spell attacks. At will: <em>ray of frost</em> (3d8), <em>entangle</em>, <em>fog cloud</em>. 3/day each: <em>cone of cold</em>, <em>ice storm</em>, <em>cloudkill</em>, <em>blight</em>. 1/day each: <em>death fog</em>, <em>freezing sphere</em>, <em>wall of ice</em>."
+    ],
+    [
+     "Hive Mind",
+     "Sees and hears through every Skin Puppet. Attacking any puppet ring alerts him."
+    ],
+    [
+     "Bloodied: Fungal Shell",
+     "At 115 HP or fewer, once, he hardens his bark (+4 AC) and orders all Skin Puppets to swarm the attackers."
+    ]
+   ],
+   "Actions": [
+    [
+     "Tendril Lash",
+     "<em>Melee Weapon Attack:</em> +10 to hit, reach 20 ft., one target. <em>Hit:</em> 15 (2d8 + 6) bludgeoning damage."
+    ],
+    [
+     "Frostrazor",
+     "<em>Melee Weapon Attack:</em> +11 to hit, reach 20 ft., one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage plus 14 (4d6) cold damage. An ice shard embeds in the target: at the start of each of its turns it loses 1d4 Strength and takes 5 damage (Mossmutter gains the same as temporary hit points). A creature can use an action to make a DC 16 Constitution save or Medicine check to extract it."
+    ],
+    [
+     "Spore Cough",
+     "30-foot cone. DC 17 Constitution save or take 18 (4d8) poison damage and be poisoned for 1 minute."
+    ]
+   ],
+   "Legendary Actions": [
+    [
+     "Tendril Lash",
+     "Costs 1 action: makes a Tendril Lash attack."
+    ],
+    [
+     "Spore Cough",
+     "Costs 2 actions."
+    ],
+    [
+     "Frostrazor Arcing Cleave",
+     "Costs 2 actions: 60-foot line of subzero rime. Each creature in the line makes a DC 17 Dexterity save, taking 14 (4d6) cold damage on a failure, half on a success."
+    ]
+   ]
+  }
+ },
+ {
+  "name": "Saprophis",
+  "title": "Saprophis",
+  "aliases": [],
+  "slug": "saprophis",
+  "size": "Small",
+  "meta": "Small Humanoid (Gnome), Lawful Evil",
+  "ac": 19,
+  "ac_note": "full plate, defensive style",
+  "hp": 112,
+  "hp_dice": "14d8 + 49",
+  "speed": "25 ft.",
+  "abilities": [
+   18,
+   13,
+   16,
+   15,
+   10,
+   12
+  ],
+  "senses": "passive Perception 10",
+  "languages": "Common, Gnomish, Undercommon",
+  "cr": "7",
+  "xp": "2,900",
+  "pb": 3,
+  "sections": {
+   "Traits": [
+    [
+     "Gnome Cunning",
+     "Advantage on Intelligence, Wisdom, and Charisma saves against magic."
+    ],
+    [
+     "Toe-Ring of Spell Turning",
+     "Advantage on saves against spells. Once per day, reflects one spell of 5th level or lower back at its caster."
+    ],
+    [
+     "Brother's Doubt",
+     "If the party mentions Thallo or casts <em>dispel magic</em> while he is bloodied (56 HP or fewer), he may falter, questioning Mossmutter's orders."
+    ]
+   ],
+   "Actions": [
+    [
+     "Cold-iron Halberd",
+     "<em>Melee Weapon Attack:</em> +8 to hit, reach 10 ft., one target. <em>Hit:</em> 9 (1d10 + 4) slashing damage."
+    ]
+   ],
+   "Reactions": [
+    [
+     "Sentinel",
+     "When a creature within reach makes an opportunity attack or leaves his reach, he makes a halberd attack; on a hit the target's speed becomes 0 until the end of the turn."
+    ]
+   ]
+  }
+ },
+ {
+  "name": "Skin Puppet",
+  "title": "Skin Puppet",
+  "aliases": [],
+  "slug": "skin-puppet",
+  "size": "Medium",
+  "meta": "Medium Humanoid (Fungal Husk), Neutral Evil",
+  "ac": 11,
+  "ac_note": "fungal bodynet",
+  "hp": 13,
+  "hp_dice": "3d8",
+  "speed": "25 ft.",
+  "abilities": [
+   12,
+   8,
+   10,
+   5,
+   8,
+   5
+  ],
+  "immunes": "poison",
+  "cond_immunes": "poisoned",
+  "senses": "passive Perception 9",
+  "languages": "understands Common but can't speak",
+  "cr": "1/4",
+  "xp": "50",
+  "pb": 2,
+  "sections": {
+   "Traits": [
+    [
+     "Hive Voice",
+     "Any puppet can relay Mossmutter's telepathic speech. Dormant puppets resemble bulbous polyps (DC 15 Perception to spot at 50 ft)."
+    ],
+    [
+     "Collapse",
+     "When it dies, its skin splits into 15-HP mold wyrm gel that revives after 8 hours."
+    ]
+   ],
+   "Actions": [
+    [
+     "Bone Claws",
+     "<em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 3 (1d4 + 1) slashing damage. The target makes a DC 13 Constitution save or takes 3 (1d6) necrotic damage and coughs: -2 to attack rolls, saves, and checks until the end of its next turn."
+    ]
+   ]
+  }
+ },
+ {
+  "name": "Slug of Remarkable Size",
+  "title": "Slug of Remarkable Size",
+  "aliases": [
+   "Giant Slug"
+  ],
+  "slug": "giant-slug",
+  "size": "Huge",
+  "meta": "Huge Beast, Unaligned",
+  "ac": 8,
+  "ac_note": "natural armor",
+  "hp": 105,
+  "hp_dice": "10d12 + 40",
+  "speed": "20 ft., climb 20 ft.",
+  "abilities": [
+   20,
+   6,
+   18,
+   1,
+   6,
+   2
+  ],
+  "senses": "blindsight 100 ft. (vibration and scent), passive Perception 8",
+  "languages": "-",
+  "cr": "5",
+  "xp": "1,800",
+  "pb": 3,
+  "sections": {
+   "Traits": [
+    [
+     "Docile Grazer",
+     "Ignores creatures that don't attack it. Charm effects (e.g., <em>animal friendship</em>, DC 14) make it an ally or diversion."
+    ],
+    [
+     "Slime Trail",
+     "Its slime leaves difficult terrain behind it for 10 minutes."
+    ]
+   ],
+   "Actions": [
+    [
+     "Bite",
+     "<em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 15 (3d6 + 5) piercing damage."
+    ]
+   ]
+  }
+ },
+ {
+  "name": "Burning Golem",
+  "title": "Burning Golem",
+  "aliases": [],
+  "slug": "burning-golem",
+  "size": "Large",
+  "meta": "Large Construct, Unaligned",
+  "ac": 17,
+  "ac_note": "natural armor",
+  "hp": 133,
+  "hp_dice": "14d10 + 56",
+  "speed": "30 ft.",
+  "abilities": [
+   20,
+   10,
+   18,
+   3,
+   11,
+   1
+  ],
+  "immunes": "fire, poison, psychic; bludgeoning, piercing, and slashing from nonmagical attacks",
+  "cond_immunes": "charmed, exhaustion, frightened, paralyzed, petrified, poisoned",
+  "senses": "darkvision 60 ft., passive Perception 10",
+  "languages": "understands the languages of its creator but can't speak",
+  "cr": "7",
+  "xp": "2,900",
+  "pb": 3,
+  "sections": {
+   "Traits": [
+    [
+     "Clinging Cinders",
+     "A creature hit by a cinder fist catches fire, taking 5 (1d10) fire damage at the start of each of its turns until someone takes an action to douse the fire with water or loose earth."
+    ],
+    [
+     "Quench Vulnerability",
+     "If subjected to cold damage or at least 10 gallons of water, the golem's AC drops to 14 and its Clinging Cinders trait is suppressed for 1 round."
+    ],
+    [
+     "Immutable Form",
+     "The golem is immune to any spell or effect that would alter its form."
+    ],
+    [
+     "Magic Resistance",
+     "The golem has advantage on saving throws against spells and other magical effects."
+    ],
+    [
+     "Magic Weapons",
+     "The golem's weapon attacks are magical."
+    ],
+    [
+     "Thermal Meltdown (Bloodied Rally)",
+     "If the golem rallies when bloodied (66 HP or fewer), upon death it explodes in a 10-foot burst of burning cinders (10 (3d6) fire damage, DC 14 Dexterity save for half)."
+    ]
+   ],
+   "Actions": [
+    [
+     "Multiattack",
+     "The golem makes two Cinder Fist attacks."
+    ],
+    [
+     "Cinder Fist",
+     "<em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 14 (2d8 + 5) bludgeoning damage plus 7 (2d6) fire damage, and the target catches fire, taking 5 (1d10) fire damage at the start of each turn until doused with water or loose earth (action)."
+    ],
+    [
+     "Terrifying Cry (Recharge 5-6, Round 3+)",
+     "The golem emits an unearthly wail. Each creature within 60 ft. must make a DC 14 Wisdom saving throw or become frightened for 1 minute (save ends at end of each turn)."
+    ]
+   ]
+  }
+ },
+ {
+  "name": "Brassbinder",
+  "title": "Brassbinder",
+  "aliases": [
+   "Efreeti"
+  ],
+  "slug": "brassbinder",
+  "size": "Large",
+  "meta": "Large Fiend (Efreeti Pyromancer), Lawful Evil",
+  "ac": 17,
+  "ac_note": "natural armor",
+  "hp": 150,
+  "hp_dice": "12d10 + 84",
+  "speed": "40 ft., fly 60 ft.",
+  "abilities": [
+   22,
+   12,
+   24,
+   18,
+   15,
+   18
+  ],
+  "saves": "Int +8, Wis +6, Cha +8",
+  "save_bonus": {
+   "3": 8,
+   "4": 6,
+   "5": 8
+  },
+  "immunes": "fire",
+  "cond_immunes": "charmed",
+  "senses": "passive Perception 12",
+  "languages": "Auran, Common, Ignan",
+  "cr": "11",
+  "xp": "7,200",
+  "pb": 4,
+  "sections": {
+   "Traits": [
+    [
+     "Human Disguise",
+     "Appears as a bald, tattooed human scholar until he drops the illusion to reveal his efreeti form."
+    ],
+    [
+     "Innate Spellcasting",
+     "Spell save DC 16, +8 to hit with spell attacks. At will: <em>detect magic</em>, <em>fire bolt</em> (3d10), <em>misty step</em>. 3/day each: <em>scorching ray</em>, <em>shield</em>, <em>counterspell</em>, <em>invisibility</em>. 1/day each: <em>fireball</em> (8d6), <em>wall of fire</em>, <em>polymorph</em>, <em>conjure elemental</em> (fire), <em>cone of cold</em>."
+    ],
+    [
+     "Bloodied Morale",
+     "At 75 HP or fewer he may rally, flee invisible, bargain (offering the Area 59 lab combination), or surrender."
+    ]
+   ],
+   "Actions": [
+    [
+     "Blazing Efreeti Scimitar",
+     "<em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft., one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage plus 7 (2d6) fire damage."
+    ]
+   ]
+  }
+ },
+ {
+  "name": "Bloodwight",
+  "title": "Bloodwight",
+  "aliases": [],
+  "slug": "bloodwight",
+  "size": "Medium",
+  "meta": "Medium Aberration (Living Construct), Unaligned",
+  "ac": 14,
+  "ac_note": "liquid surface tension",
+  "hp": 68,
+  "hp_dice": "8d8 + 32",
+  "speed": "30 ft.",
+  "abilities": [
+   16,
+   14,
+   18,
+   3,
+   12,
+   6
+  ],
+  "resists": "fire, piercing and slashing from nonmagical attacks",
+  "immunes": "poison",
+  "cond_immunes": "charmed, exhaustion, frightened, paralyzed, poisoned, prone",
+  "senses": "blindsight 60 ft. (blind beyond), blood sense 60 ft., passive Perception 11",
+  "languages": "-",
+  "cr": "4",
+  "xp": "1,100",
+  "pb": 2,
+  "sections": {
+   "Traits": [
+    [
+     "Blood Sense",
+     "Pinpoints creatures with blood within 60 ft."
+    ],
+    [
+     "Regeneration",
+     "Regains 5 hit points at the start of its turn if it has at least 1 hit point."
+    ],
+    [
+     "Purification Vulnerability",
+     "If targeted by <em>purify food and drink</em>, it must succeed on a DC 15 Constitution save or take 27 (6d8) radiant damage and have its regeneration halted for 1 minute. Cold damage reduces its speed by 10 feet."
+    ]
+   ],
+   "Actions": [
+    [
+     "Multiattack",
+     "Two Pseudopod Slam attacks."
+    ],
+    [
+     "Pseudopod Slam",
+     "<em>Melee Weapon Attack:</em> +5 to hit, reach 10 ft., one target. <em>Hit:</em> 8 (1d10 + 3) bludgeoning damage plus 7 (2d6) necrotic damage as the target's blood expels through its skin. The bloodwight regains hit points equal to the necrotic damage dealt."
+    ]
+   ]
+  }
+ },
+ {
+  "name": "Mold Wyrm",
+  "title": "Mold Wyrm",
+  "aliases": [],
+  "slug": "mold-wyrm",
+  "size": "Huge",
+  "meta": "Huge Plant/Monstrosity, Unaligned",
+  "ac": 16,
+  "ac_note": "chitinous fungal scales",
+  "hp": 152,
+  "hp_dice": "16d12 + 48",
+  "speed": "30 ft., burrow 30 ft.",
+  "abilities": [
+   20,
+   14,
+   17,
+   6,
+   12,
+   5
+  ],
+  "saves": "Str +9, Con +7",
+  "save_bonus": {
+   "0": 9,
+   "2": 7
+  },
+  "resists": "bludgeoning, piercing",
+  "immunes": "poison",
+  "cond_immunes": "blinded, deafened, frightened, poisoned, prone",
+  "senses": "blindsight 60 ft. (blind beyond), tremorsense 60 ft., passive Perception 11",
+  "languages": "-",
+  "cr": "9",
+  "xp": "5,000",
+  "pb": 4,
+  "sections": {
+   "Traits": [
+    [
+     "Spore Aura",
+     "Any creature starting its turn within 10 feet of the wyrm must make a DC 15 Constitution save or take 7 (2d6) poison damage and be poisoned for 1 minute."
+    ]
+   ],
+   "Actions": [
+    [
+     "Multiattack",
+     "One Bite and one Tail Slam."
+    ],
+    [
+     "Bite",
+     "<em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft., one target. <em>Hit:</em> 18 (2d12 + 5) piercing damage plus 9 (2d8) necrotic damage. If the target is Large or smaller, it is grappled (escape DC 16) and restrained."
+    ],
+    [
+     "Tail Slam",
+     "<em>Melee Weapon Attack:</em> +9 to hit, reach 15 ft., one target. <em>Hit:</em> 14 (2d8 + 5) bludgeoning damage, and the target must succeed on a DC 16 Strength saving throw or be knocked prone."
+    ],
+    [
+     "Spore Breath (Recharge 5-6)",
+     "30-foot cone of corrosive mold. Each creature in the area makes a DC 16 Constitution save, taking 36 (8d6) necrotic damage and becoming blinded for 1 minute on a failure, or half damage and not blinded on a success."
+    ]
+   ]
+  }
+ },
+ {
+  "name": "Aegwareth",
+  "title": "Aegwareth",
+  "aliases": [],
+  "slug": "aegwareth",
+  "size": "Medium",
+  "meta": "Medium Undead/Celestial (Elder Druid Shade), Neutral Good",
+  "ac": 18,
+  "ac_note": "ethereal ward",
+  "hp": 150,
+  "hp_dice": "20d8 + 60",
+  "speed": "0 ft., fly 40 ft. (hover)",
+  "abilities": [
+   14,
+   18,
+   16,
+   14,
+   20,
+   16
+  ],
+  "saves": "Dex +8, Wis +9, Cha +7",
+  "save_bonus": {
+   "1": 8,
+   "4": 9,
+   "5": 7
+  },
+  "resists": "acid, fire, lightning; bludgeoning, piercing, and slashing from nonmagical attacks",
+  "immunes": "cold, necrotic, poison",
+  "cond_immunes": "charmed, exhaustion, frightened, paralyzed, poisoned, prone",
+  "senses": "darkvision 120 ft., passive Perception 15",
+  "languages": "Common, Druidic, Sylvan",
+  "cr": "12",
+  "xp": "8,400",
+  "pb": 4,
+  "sections": {
+   "Traits": [
+    [
+     "Incorporeal Movement",
+     "Can move through other creatures and objects as difficult terrain."
+    ]
+   ],
+   "Actions": [
+    [
+     "Multiattack",
+     "Two Spectral Flame Touch attacks."
+    ],
+    [
+     "Spectral Flame Touch",
+     "<em>Melee Spell Attack:</em> +9 to hit, reach 5 ft., one target. <em>Hit:</em> 18 (4d8) fire damage plus 18 (4d8) radiant damage. The target must succeed on a DC 16 Constitution saving throw or magically age 1d10 + 4 years."
+    ],
+    [
+     "Call Leviathan (Ultimate Action)",
+     "If he realizes he cannot prevent Keraptis's escape or achieve his revenge, Aegwareth calls the colossal Magma Leviathan from the lava sea to crush the crystal Fane, sacrificing his own existence."
+    ]
+   ],
+   "Bonus Actions": [
+    [
+     "Fade into Obscurity",
+     "Becomes nearly transparent. While obscure he is invulnerable to all damage and regenerates 10 hit points at the start of his turn, but cannot make physical attacks."
+    ]
+   ]
+  }
+ },
+ {
+  "name": "Keraptis",
+  "title": "Keraptis",
+  "aliases": [],
+  "slug": "keraptis",
+  "size": "Medium",
+  "meta": "Medium Humanoid (Human Wizard / Shadow-Transcended Archmage), Neutral Evil",
+  "ac": 19,
+  "ac_note": "archmage wards; 24 with Shield",
+  "hp": 247,
+  "hp_dice": "26d8 + 130",
+  "speed": "30 ft., fly 60 ft. (hover)",
+  "abilities": [
+   12,
+   18,
+   20,
+   22,
+   18,
+   20
+  ],
+  "saves": "Con +11, Int +12, Wis +10, Cha +11",
+  "save_bonus": {
+   "2": 11,
+   "3": 12,
+   "4": 10,
+   "5": 11
+  },
+  "skills": "Arcana +18, History +18, Insight +10, Perception +10",
+  "resists": "cold, fire, lightning, psychic; damage from spells",
+  "immunes": "necrotic, poison",
+  "cond_immunes": "charmed, exhaustion, frightened, paralyzed, poisoned",
+  "senses": "truesight 120 ft., passive Perception 20",
+  "languages": "all",
+  "cr": "18",
+  "xp": "20,000",
+  "pb": 6,
+  "sections": {
+   "Traits": [
+    [
+     "Legendary Resistance (3/Day)",
+     "If Keraptis fails a saving throw, he can choose to succeed instead."
+    ],
+    [
+     "Magic Resistance",
+     "Advantage on saving throws against spells and other magical effects."
+    ],
+    [
+     "Master of the Four Pillars",
+     "Keraptis forged the planar bindings on <em>Wave</em>, <em>Whelm</em>, <em>Blackrazor</em>, and <em>Frostrazor</em>. His soul cannot be devoured by <em>Blackrazor</em>, and he ignores the necrotic/cold immunity-bypassing traits of his own bound weapons unless he is bloodied (123 HP or fewer)."
+    ],
+    [
+     "Living K-Imprint Aura",
+     "Any creature that starts its turn within 15 feet of Keraptis hears \"I am Keraptis\" inside its skull and must succeed on a DC 20 Wisdom save or take 11 (2d10) psychic damage and have disadvantage on concentration saves until the start of its next turn."
+    ]
+   ],
+   "Actions": [
+    [
+     "Multiattack",
+     "Casts one spell (or cantrip) and makes two Void-Shard Bolt attacks."
+    ],
+    [
+     "Void-Shard Bolt",
+     "<em>Melee or Ranged Spell Attack:</em> +12 to hit, reach 5 ft. or range 120 ft., one target. <em>Hit:</em> 20 (4d6 + 6) force damage plus 14 (4d6) necrotic damage."
+    ],
+    [
+     "Spellcasting",
+     "20th-level wizard, Int 22, spell save DC 20, +12 to hit. At will: <em>counterspell</em> (3rd level), <em>dispel magic</em>, <em>fireball</em>, <em>lightning bolt</em>, <em>magic missile</em> (5th level), <em>misty step</em>, <em>shield</em>, <em>wall of force</em>. 3/day each: <em>chain lightning</em>, <em>cone of cold</em>, <em>dimension door</em>, <em>globe of invulnerability</em>, <em>reverse gravity</em>, <em>synaptic static</em>. 1/day each: <em>maze</em>, <em>meteor swarm</em> (or <em>prismatic spray</em>), <em>power word stun</em>, <em>time stop</em>."
+    ]
+   ],
+   "Reactions": [
+    [
+     "Arcane Counter / Shield",
+     "Casts <em>shield</em> (+5 AC) or <em>counterspell</em> against an enemy spell."
+    ],
+    [
+     "Pillar Dominion (Recharge 5-6)",
+     "When a creature wielding <em>Wave</em>, <em>Whelm</em>, <em>Blackrazor</em>, or <em>Frostrazor</em> attacks Keraptis, the wielder must succeed on a DC 20 Charisma save or the attack is redirected against another creature of his choice within the weapon's reach."
+    ]
+   ],
+   "Legendary Actions": [
+    [
+     "Sentient Spell Dart (1 Action)",
+     "One creature within 120 ft.: +12 to hit, 16 (3d6 + 6) psychic damage."
+    ],
+    [
+     "Planar Slip (1 Action)",
+     "Teleports up to 60 feet without provoking opportunity attacks."
+    ],
+    [
+     "Harmonic Weapon Backlash (2 Actions)",
+     "One of the four weapons within 120 ft. surges: the wielder and each creature within 10 ft. make a DC 20 Constitution save, taking 22 (5d8) damage on a failure, half on a success."
+    ]
+   ]
+  }
+ }
+]
