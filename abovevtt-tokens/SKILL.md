@@ -13,10 +13,19 @@ This skill automates synchronizing placed placeholder tokens in an exported `.ab
 
 - `.abovevtt` files are **Base64-encoded UTF-8 JSON** (typically tab-indented `indent="\t"`).
 - Root keys: `version`, `scenes`, `tokencustomizations`, `notes`, `journalchapters`, `soundpads`.
-- Custom stat blocks reside in `notes` with `"statBlock": True` and `"player": False`.
-- Placed tokens in `scenes[0]["tokens"]` point to these notes via `token["statBlock"] = note_id` and `token["monster"] = "customStat"`.
-- Helper script and data directory:
+- Custom stat blocks reside in `notes` with `"statBlock": True` and `"player": True` (AboveVTT custom tokens).
+- `notes[note_id]` contains:
+  - `id`: unique UUID
+  - `statBlock`: `True`
+  - `player`: `True`
+  - `plain` and `text`: identical canonical D&D Beyond stat block HTML (using `mon-stat-block ddbc-creature-block` classes)
+  - `abilityTracker`: dict of tracked charges/spells (e.g. `{"create undead": 3}`)
+- Placed tokens in `scenes[0]["tokens"]` point to these notes via `token["statBlock"] = note_id`, `token["itemId"] = note_id`, `token["itemType"] = "myToken"`, `token["listItemPath"] = "/My Tokens/<Name>"`, and `token["monster"] = "customStat"`.
+- Helper script, resources and data directory:
   - Script: `.agents/skills/abovevtt-tokens/scripts/avtt_tokens.py`
+  - Canonical Reference Fixtures (from native AboveVTT capture):
+    - `.agents/skills/abovevtt-tokens/resources/orcus_reference.json` (raw token and note dictionary)
+    - `.agents/skills/abovevtt-tokens/resources/orcus_statblock.html` (standalone DDB HTML stat block)
   - Creature data: `.agents/skills/abovevtt-tokens/data/<adventure>.json`
 
 ---
@@ -55,21 +64,63 @@ Never touch or reset the following properties:
 ## 3. Stat Block Formatting & Idempotency
 
 ### A. Stat Block Schema (`notes`)
-To avoid creating duplicate notes across multiple runs, look up existing notes by title before generating a new UUID:
+AboveVTT stores custom tokens as notes with identical `plain` and `text` HTML fields. To avoid creating duplicate notes across multiple runs, look up existing notes by title or header link before generating a new UUID:
 ```python
-note_id = next(
-    (
-        k
-        for k, v in data["notes"].items()
-        if v.get("statBlock") is True
-        and v.get("title").strip().lower() == creature_title.strip().lower()
-    ),
-    f"{slug}-{uuid.uuid4()}",
-)
+def find_note_id(notes, name):
+    name_clean = name.strip().lower()
+    for nid, n in notes.items():
+        if not n.get("statBlock"):
+            continue
+        if n.get("title", "").strip().lower() == name_clean:
+            return nid
+        # Check title in DDB HTML name-link
+        m = re.search(r'class="mon-stat-block__name-link[^"]*">\s*([^<]+?)\s*</a>', n.get("plain", ""))
+        if m and m.group(1).strip().lower() == name_clean:
+            return nid
+    return str(uuid.uuid4())
 ```
 
-### B. AboveVTT Journal Template Styling
-Embed AboveVTT's official `content_styles` CSS in `<style id='contentStyles'>` inside the note HTML so fonts, headings, and tables match the native journal themes and interact cleanly with DM browser extensions (e.g. Stylus).
+### B. Native D&D Beyond HTML & Roll Buttons (No CSS Bloat)
+AboveVTT natively injects stylesheets for standard D&D Beyond stat blocks. **Do NOT embed 50KB `<style id='contentStyles'>`**.
+Use the canonical structure captured from AboveVTT tokens:
+- **Root wrapper**:
+  ```html
+  <div id="content" class="main content-container" style="padding:0!important">
+    <section class="primary-content" role="main">
+      <div class="monster-details">
+        <div class="more-info details-more-info" style="padding: 2px;">
+          <div class="detail-content">
+            <div class="mon-stat-block ddbc-creature-block" style="column-count: 1;margin:0;">
+              ...
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  ```
+- **Interactive Check & Save Buttons (`avtt-roll-button`)**:
+  ```html
+  <button data-exp="1d20" data-mod="+2" data-rolltype="Check" data-actiontype="Initiative" class="avtt-roll-button">+2</button>
+  <button data-exp="1d20" data-mod="+8" data-rolltype="check" data-actiontype="STR" class="avtt-roll-button">(+8)</button>
+  <button data-exp="1d20" data-mod="+10" data-rolltype="save" data-actiontype="DEX" class="avtt-roll-button">+10</button>
+  ```
+- **Clickable Dice Notation Spans (`data-dicenotation`)**:
+  ```html
+  <span data-dicenotation="1d20+19" data-rolltype="to hit" data-rollaction="Wand of Orcus">+19</span>
+  <span data-dicenotation="3d8+8" data-rolltype="damage" data-rollaction="Wand of Orcus" data-rolldamagetype="bludgeoning">(3d8 + 8)</span>
+  ```
+- **Note Object Properties**:
+  ```python
+  notes[note_id] = {
+      "id": note_id,
+      "player": True,
+      "statBlock": True,
+      "plain": html,
+      "text": html,
+      "abilityTracker": ability_tracker or {},
+  }
+  ```
 
 ### C. Token Combat Wiring
 ```python
@@ -77,6 +128,7 @@ token["statBlock"] = note_id
 token["itemId"] = note_id
 token["monster"] = "customStat"
 token["itemType"] = "myToken"
+token["listItemPath"] = f"/My Tokens/{creature_name}"
 token.pop("stat", None)  # CRITICAL: strip DDB numeric ID to decouple vanilla sheet
 token["disablestat"] = False
 token["hidestat"] = False
