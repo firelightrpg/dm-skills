@@ -449,6 +449,48 @@ CREATURE_BLUEPRINTS = {
             "https://www.dndbeyond.com/avatars/30833/344/638063861715070425.png"
         ],
         "listItemPath": "/Monsters/Manticore"
+    },
+    "carrion crawler": {
+        "custom": False,
+        "title": "Carrion Crawler",
+        "size": "Large",
+        "ac": 13,
+        "hp": 51,
+        "stat": 17138,
+        "imgsrc": "https://5e.tools/img/bestiary/tokens/MM/Carrion%20Crawler.webp",
+        "alts": [
+            "https://5e.tools/img/bestiary/tokens/MM/Carrion%20Crawler.webp",
+            "https://www.dndbeyond.com/avatars/8/803/636319242379639973.jpeg"
+        ],
+        "listItemPath": "/Monsters/Carrion Crawler"
+    },
+    "commoner": {
+        "custom": False,
+        "title": "Commoner",
+        "size": "Medium",
+        "ac": 10,
+        "hp": 4,
+        "stat": 16829,
+        "imgsrc": "https://5e.tools/img/bestiary/tokens/MM/Commoner.webp",
+        "alts": [
+            "https://5e.tools/img/bestiary/tokens/MM/Commoner.webp",
+            "https://www.dndbeyond.com/avatars/4675/675/636747837794884984.jpeg"
+        ],
+        "listItemPath": "/Monsters/Commoner"
+    },
+    "captive villager": {
+        "custom": False,
+        "title": "Captive Villager",
+        "size": "Medium",
+        "ac": 10,
+        "hp": 4,
+        "stat": 16829,
+        "imgsrc": "https://5e.tools/img/bestiary/tokens/MM/Commoner.webp",
+        "alts": [
+            "https://5e.tools/img/bestiary/tokens/MM/Commoner.webp",
+            "https://www.dndbeyond.com/avatars/4675/675/636747837794884984.jpeg"
+        ],
+        "listItemPath": "/Monsters/Commoner"
     }
 }
 
