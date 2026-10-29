@@ -164,11 +164,12 @@
     }
   },
   {
-    "name": "Cave Bear",
-    "title": "Grutha's Cave Bear",
+    "name": "Old White-Eye",
+    "title": "Old White-Eye (Cave Bear)",
     "aliases": [
+      "Old White-Eye",
       "Cave Bear",
-      "Old White-Eye"
+      "Grutha's Cave Bear"
     ],
     "slug": "cave-bear",
     "size": "Large",
