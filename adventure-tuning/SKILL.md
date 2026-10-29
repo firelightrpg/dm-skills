@@ -85,7 +85,7 @@ Every converted encounter must follow this Markdown structure:
 - **Rules & Acoustics:** [Stealth penalties/disadvantage from noisy footing, whether ambient noise imposes disadvantage on hearing-based Perception checks, and alert propagation to adjacent areas].
 - **Clocks & Timers:** [Specific event countdowns, drainage/collapse times, ritual clocks. Omit this bullet entirely if none].
 
-**Audio Cues:** <a href="rpg-audio://trigger/ambient">▶ Ambience</a> | <a href="rpg-audio://trigger/fade">🔉 Fade Out</a>
+**Audio Cues:** <a href="rpg-audio://trigger/ambient">▶ Ambience</a> | <a href="rpg-audio://trigger/fade">🔉 Fade Out</a> <!-- Add ⚔️ Combat, 🎺 Theme, or 🏆 Triumph as needed -->
 
 > [Evocative boxed read-aloud text with integrated sensory preamble (sight, sound, smell, atmosphere) and tangible scale. Zero spoilers, secret doors, or game mechanics.]
 
