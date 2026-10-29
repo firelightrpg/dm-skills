@@ -312,6 +312,52 @@ The engine integrates with the local RPG runner (`http://127.0.0.1:26796/roll`) 
 | **Hazard Duration** | `d=[dice]`<br>`label=[Name]+Duration` | `[**2d4 rounds**](http://127.0.0.1:26796/roll?d=2d4&label=Grease+Fire+Duration)` | Evaluates duration and copies `🎲 Grease Fire Duration: X rounds` to clipboard. |
 | **DM Morale / Reaction** | `dm=true`<br>`d=2d6`<br>`label=[Name]` | `[🎲 2d6](http://127.0.0.1:26796/roll?d=2d6&dm=true&label=Goblin+Bloodied+Morale)` | Evaluates 2d6, logs outcome to session ledger, and copies `🎲 [DM] Goblin Bloodied Morale: X (2d6 [...])` to clipboard. |
 
+### 6. Scene Art Generation & Nextcloud Cloud Direct-Share Integration
+
+Every room writeup supports an embedded full-color scene illustration placed directly below the boxed read-aloud text and before `**_Structure Insight & Gated Observations:_**`.
+
+#### Art Style Convention:
+```text
+First person, Fantasy art, hand painted
+```
+
+#### Image Placement Standard:
+```markdown
+> [Evocative boxed read-aloud text with integrated sensory preamble and scale.]
+
+![](https://wyrmbox.com/s/<token>/download)
+
+**_Structure Insight & Gated Observations:_**
+```
+
+#### Prompt Extraction & Stepper Tooling:
+Use `scripts/copy_room_prompt.py` to extract the exact room prompt (Heading + DM Info + Audio Cues + Read-Aloud text + Style) and copy it directly to the system clipboard via `xclip` with desktop notifications:
+```bash
+# Copy specific room prompt:
+python3 scripts/copy_room_prompt.py 10
+python3 scripts/copy_room_prompt.py d1
+
+# Auto-step to the next missing room:
+python3 scripts/copy_room_prompt.py next
+
+# View full module image status:
+python3 scripts/copy_room_prompt.py --list
+```
+
+#### Nextcloud OCS Public Direct-Share Tooling:
+Use `scripts/nextcloud_share.py` to interact directly with Nextcloud's OCS Sharing API (`/ocs/v2.php/apps/files_sharing/api/v1/shares`) using active credentials from `~/.davfs2/secrets`:
+```bash
+# Query or create public direct-download link:
+python3 scripts/nextcloud_share.py ~/Nextcloud/bulk-store/.../1.jpeg
+
+# Copy markdown link to clipboard:
+python3 scripts/nextcloud_share.py ~/Nextcloud/bulk-store/.../1.jpeg -c
+
+# Batch-insert public download links directly into module markdown:
+python3 scripts/nextcloud_share.py <image_directory> --insert <adventure.md> --section "Upper Works"
+python3 scripts/nextcloud_share.py <image_directory> --insert <adventure.md> --section "Dungeon Level"
+```
+
 ---
 
 ## Step-by-Step Conversion Workflow
@@ -338,3 +384,7 @@ When given a raw chapter or adventure module:
    - Script sensory feedback quotes (`> _"..."_`) for all buttons, levers, doors, and chests.
    - Embed interactive AboveVTT rollers for all trap/hazard attacks (`cmd=avtt`) and damage formulas (`cmd=dmg`).
    - Break down hoards into specific currencies, art objects, and hyperlinked magic items.
+8. **Step 8: Scene Art & Cloud Share Integration**:
+   - Generate scene illustrations using `First person, Fantasy art, hand painted` style.
+   - Store scene art in Nextcloud under map-specific folders (`Upper Works/`, `Dungeon Level/`) or prefixed filenames (`d1.jpeg`, `d2.jpeg`).
+   - Run `nextcloud_share.py --insert <adventure.md> --section "<Section>"` to automatically generate public direct-download URLs and inject `![](https://<host>/s/<token>/download)` tags under each room's boxed text.
