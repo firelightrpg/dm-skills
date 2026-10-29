@@ -148,7 +148,9 @@ Every converted encounter must follow this Markdown structure:
 **_Interactions & Triggered Discoveries:_**
 - **[Mechanism / Hazard / Puzzle / Secret Door]:**
   > _"[Sensory read-aloud response when triggered or manipulated]"_
-  - [Detailed mechanical DC, saving throws, damage formulas, durations, and physical effects].
+  - [Detailed mechanical DC, saving throws, attack rolls, damage formulas, durations, and physical effects].
+  - Sprung Trap Attack: [**+X to hit**](http://127.0.0.1:26796/roll?d=1d20%2BX&label=[Name]+Attack&cmd=avtt)
+  - Trap/Hazard Damage: [**avg (dice) [type] damage**](http://127.0.0.1:26796/roll?d=[dice]&type=[type]&label=[Name]&cmd=dmg)
 - **[Interrogating Occupants]:** [Diegetic lore revealed, memory blocks, boundaries of what they know and don't know].
 - **[Room Loot & Hoards]:**
   > _"[Sensory description of the treasure]"_
@@ -288,6 +290,28 @@ When combat, explosions, or alarms occur, realistic dungeons naturally "bleed" a
   - **11–12 [Hesitate]**: Call cease-fire, offer parley or bypass password.
   - **13+ [Surrender]**: Drop weapons, beg for quarter, yield hoards.
 
+### 5. Interactive Rollers & AboveVTT Chat Integration
+
+The engine integrates with the local RPG runner (`http://127.0.0.1:26796/roll`) to provide one-click rolling that automatically copies AboveVTT chat commands or evaluated outcomes to the system clipboard for immediate pasting (`Ctrl+V`) into AboveVTT.
+
+#### Roller Inclusion Rules:
+- **Include Rollers For:**
+  - Anything in the environment that can attack or damage players: mechanical/magical traps, falling hazards, scalding steam/fire pools, collapsing masonry, and sprung poison spikes.
+  - Behavioral and reaction engines (`Initial Reaction` and `Bloodied Morale`).
+  - Environmental hazard durations (e.g., grease fire burning for `2d4 rounds`).
+- **Do NOT Include Rollers For:**
+  - **Enemies / Monsters with Token Stat Blocks:** Adversaries placed on the VTT have full interactive sheets in AboveVTT; their attacks, damage, and saves roll natively from their tokens.
+  - **Player Rolls:** Player saving throws, perception checks, athletics contests, and thieves' tools checks are driven and rolled by the players themselves.
+
+#### Endpoint Parameter Standards (`http://127.0.0.1:26796/roll`):
+
+| Roll Category | Endpoint Parameters | Example Link & Markdown | Clipboard Result & VTT Behavior |
+| :--- | :--- | :--- | :--- |
+| **Trap / Hazard Attack** | `cmd=avtt`<br>`d=1d20%2BX`<br>`label=[Name]` | `[**+6 to hit**](http://127.0.0.1:26796/roll?d=1d20%2B6&label=Bear+Trap+Attack&cmd=avtt)` | Copies `/r 1d20+6 Bear Trap Attack`. When pasted into AboveVTT chat, rolls a live 3D attack roll. |
+| **Trap / Hazard Damage** | `cmd=dmg`<br>`d=[dice]`<br>`type=[type]`<br>`label=[Name]` | `[**12 (2d8 + 3) piercing damage**](http://127.0.0.1:26796/roll?d=2d8%2B3&type=piercing&label=Bear+Trap&cmd=dmg)` | Copies `/dmg 2d8+3 Bear Trap:piercing`. When pasted into AboveVTT chat, renders an interactive damage card applyable to tokens. |
+| **Hazard Duration** | `d=[dice]`<br>`label=[Name]+Duration` | `[**2d4 rounds**](http://127.0.0.1:26796/roll?d=2d4&label=Grease+Fire+Duration)` | Evaluates duration and copies `🎲 Grease Fire Duration: X rounds` to clipboard. |
+| **DM Morale / Reaction** | `dm=true`<br>`d=2d6`<br>`label=[Name]` | `[🎲 2d6](http://127.0.0.1:26796/roll?d=2d6&dm=true&label=Goblin+Bloodied+Morale)` | Evaluates 2d6, logs outcome to session ledger, and copies `🎲 [DM] Goblin Bloodied Morale: X (2d6 [...])` to clipboard. |
+
 ---
 
 ## Step-by-Step Conversion Workflow
@@ -312,4 +336,5 @@ When given a raw chapter or adventure module:
    - Script the pre-rolled Activity (d8), 2d6 Initial Reaction Roll with Danger Assessment, Social Influence Matrix, **Combat Start & Determine Surprise** (including the RAW Darkness/Darkvision -5 adjustment and ambush triggers), combat strategy (Round 1 openers, recharge discipline, target prioritization, illumination warfare), and clean un-nested 2d6 Dynamic Bloodied Morale Check with tactical assessment shifts.
 7. **Step 7: Physical Interactions & Rewards**:
    - Script sensory feedback quotes (`> _"..."_`) for all buttons, levers, doors, and chests.
+   - Embed interactive AboveVTT rollers for all trap/hazard attacks (`cmd=avtt`) and damage formulas (`cmd=dmg`).
    - Break down hoards into specific currencies, art objects, and hyperlinked magic items.
