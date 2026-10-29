@@ -1,0 +1,217 @@
+[
+  {
+    "name": "Chief Nosra",
+    "title": "Chief Nosnra",
+    "aliases": [
+      "Chief Nosra",
+      "Chief Nosnra",
+      "Nosra",
+      "Nosnra"
+    ],
+    "slug": "chief-nosnra",
+    "size": "Huge",
+    "meta": "Huge Giant (Hill Giant), Chaotic Evil",
+    "ac": 17,
+    "ac_note": "splint armor",
+    "hp": 138,
+    "hp_dice": "12d12 + 60",
+    "speed": "40 ft.",
+    "abilities": [
+      23,
+      9,
+      21,
+      9,
+      10,
+      12
+    ],
+    "saves": "Con +8, Wis +3, Cha +4",
+    "save_bonus": {
+      "2": 8,
+      "4": 3,
+      "5": 4
+    },
+    "skills": "Athletics +9, Perception +3",
+    "senses": "darkvision 60 ft., passive Perception 13",
+    "languages": "Giant, Common",
+    "cr": "8",
+    "xp": "3,900",
+    "pb": 3,
+    "sections": {
+      "Traits": [
+        [
+          "Tactical Retreat",
+          "If reduced to 69 hit points or fewer, Nosnra immediately disengages and retreats toward his private chambers (Area 8 and Area 10) to escape down the secret chimney chute to Area 33."
+        ]
+      ],
+      "Actions": [
+        [
+          "Multiattack",
+          "Nosnra makes two greataxe attacks."
+        ],
+        [
+          "Greataxe",
+          "<em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft., one target. <em>Hit:</em> 25 (3d12 + 6) slashing damage."
+        ],
+        [
+          "Wall Ballista",
+          "<em>Ranged Weapon Attack:</em> +5 to hit, range 120/480 ft., one target. <em>Hit:</em> 22 (3d10 + 6) piercing damage."
+        ],
+        [
+          "Rock",
+          "<em>Ranged Weapon Attack:</em> +9 to hit, range 60/240 ft., one target. <em>Hit:</em> 28 (4d10 + 6) bludgeoning damage."
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Burlag",
+    "title": "Burlag, Subchief of the Hill Giants",
+    "aliases": [
+      "Burlag",
+      "The Subchief",
+      "Subchief"
+    ],
+    "slug": "burlag",
+    "size": "Huge",
+    "meta": "Huge Giant (Hill Giant), Chaotic Evil",
+    "ac": 17,
+    "ac_note": "splint armor",
+    "hp": 126,
+    "hp_dice": "11d12 + 55",
+    "speed": "40 ft.",
+    "abilities": [
+      23,
+      15,
+      20,
+      10,
+      12,
+      9
+    ],
+    "saves": "Dex +5, Con +8, Wis +4",
+    "save_bonus": {
+      "1": 5,
+      "2": 8,
+      "4": 4
+    },
+    "skills": "Athletics +9, Perception +4",
+    "senses": "darkvision 60 ft., passive Perception 14",
+    "languages": "Giant, Common",
+    "cr": "7",
+    "xp": "2,900",
+    "pb": 3,
+    "sections": {
+      "Actions": [
+        [
+          "Multiattack",
+          "Burlag makes two greatclub attacks."
+        ],
+        [
+          "Greatclub",
+          "<em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft., one target. <em>Hit:</em> 19 (3d8 + 6) bludgeoning damage."
+        ],
+        [
+          "Rock",
+          "<em>Ranged Weapon Attack:</em> +9 to hit, range 60/240 ft., one target. <em>Hit:</em> 28 (4d10 + 6) bludgeoning damage."
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Grutha",
+    "title": "Grutha, Chieftess of the Steading",
+    "aliases": [
+      "Grutha, the subchief",
+      "Grutha",
+      "Grutha, Chief's Wife"
+    ],
+    "slug": "grutha",
+    "size": "Huge",
+    "meta": "Huge Giant (Hill Giant), Chaotic Evil",
+    "ac": 13,
+    "ac_note": "natural armor",
+    "hp": 105,
+    "hp_dice": "10d12 + 40",
+    "speed": "40 ft.",
+    "abilities": [
+      21,
+      8,
+      19,
+      9,
+      9,
+      8
+    ],
+    "skills": "Perception +2",
+    "senses": "darkvision 60 ft., passive Perception 12",
+    "languages": "Giant",
+    "cr": "5",
+    "xp": "1,800",
+    "pb": 3,
+    "sections": {
+      "Actions": [
+        [
+          "Multiattack",
+          "Grutha makes two greatclub attacks."
+        ],
+        [
+          "Greatclub",
+          "<em>Melee Weapon Attack:</em> +8 to hit, reach 10 ft., one target. <em>Hit:</em> 18 (3d8 + 5) bludgeoning damage."
+        ],
+        [
+          "Rock",
+          "<em>Ranged Weapon Attack:</em> +8 to hit, range 60/240 ft., one target. <em>Hit:</em> 21 (3d10 + 5) bludgeoning damage."
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Cave Bear",
+    "title": "Grutha's Cave Bear",
+    "aliases": [
+      "Cave Bear",
+      "Old White-Eye"
+    ],
+    "slug": "cave-bear",
+    "size": "Large",
+    "meta": "Large Beast, Unaligned",
+    "ac": 12,
+    "ac_note": "natural armor",
+    "hp": 42,
+    "hp_dice": "5d10 + 15",
+    "speed": "40 ft., climb 30 ft.",
+    "abilities": [
+      20,
+      10,
+      16,
+      2,
+      13,
+      7
+    ],
+    "skills": "Perception +3",
+    "senses": "passive Perception 13",
+    "cr": "2",
+    "xp": "450",
+    "pb": 2,
+    "sections": {
+      "Traits": [
+        [
+          "Keen Smell",
+          "The bear has advantage on Wisdom (Perception) checks that rely on smell (effective passive Perception 18)."
+        ]
+      ],
+      "Actions": [
+        [
+          "Multiattack",
+          "The bear makes two attacks: one with its bite and one with its claws."
+        ],
+        [
+          "Bite",
+          "<em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (1d8 + 5) piercing damage."
+        ],
+        [
+          "Claws",
+          "<em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 12 (2d6 + 5) slashing damage."
+        ]
+      ]
+    }
+  }
+]
