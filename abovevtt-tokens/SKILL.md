@@ -22,7 +22,9 @@ This skill automates synchronizing placed placeholder tokens in an exported `.ab
   - `abilityTracker`: dict of tracked charges/spells (e.g. `{"create undead": 3}`)
 - Placed tokens in `scenes[0]["tokens"]` point to these notes via `token["statBlock"] = note_id`, `token["itemId"] = note_id`, `token["itemType"] = "myToken"`, `token["listItemPath"] = "/My Tokens/<Name>"`, and `token["monster"] = "customStat"`.
 - Helper script, resources and data directory:
-  - Script: `.agents/skills/abovevtt-tokens/scripts/avtt_tokens.py`
+  - Token Script: `.agents/skills/abovevtt-tokens/scripts/avtt_tokens.py`
+  - UVTT Importer: `.agents/skills/abovevtt-tokens/scripts/uvtt_to_abovevtt.py`
+  - Mask Importer: `.agents/skills/abovevtt-tokens/scripts/mask_to_abovevtt.py`
   - Canonical Reference Fixtures (from native AboveVTT capture):
     - `.agents/skills/abovevtt-tokens/resources/orcus_reference.json` (raw token and note dictionary)
     - `.agents/skills/abovevtt-tokens/resources/orcus_statblock.html` (standalone DDB HTML stat block)
