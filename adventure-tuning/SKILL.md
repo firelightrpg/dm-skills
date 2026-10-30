@@ -349,6 +349,13 @@ python3 scripts/copy_room_prompt.py next
 python3 scripts/copy_room_prompt.py --list
 ```
 
+#### Automated Subagent Batch Generation:
+When automating scene art directly within an agent session, launch parallel `image-generator` subagents across missing room prompts:
+1. Extract the room's boxed read-aloud text, spatial description, and lighting from the adventure markdown.
+2. Formulate the art prompt following the style convention: `First person, Fantasy art, hand painted. [Read-aloud visual scene + architectural features + lighting]`.
+3. Invoke `image-generator` to render and save the file.
+4. Move/upload the generated artifacts to the campaign image store (or Nextcloud directory) and run `nextcloud_share.py` to embed the direct links into the adventure markdown.
+
 #### Nextcloud OCS Public Direct-Share Tooling:
 Use `scripts/nextcloud_share.py` to interact directly with Nextcloud's OCS Sharing API (`/ocs/v2.php/apps/files_sharing/api/v1/shares`) using active credentials from `~/.davfs2/secrets`:
 ```bash
