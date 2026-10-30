@@ -230,7 +230,25 @@ When preparing the adventure for the virtual tabletop:
 
 ---
 
-## 7. Reference Files
+## 7. Automated Scene Art & Nextcloud Image Injection Workflow
+
+When generating adventures with visual scene art:
+
+1. **Prompt Formulation:**
+   - Extract the room's boxed read-aloud text, spatial scale, and lighting.
+   - Format prompt: `First person view, Fantasy art, hand painted, atmospheric lighting, moody. [Sensory read-aloud details + architectural features + lighting]`.
+2. **Subagent Generation:**
+   - Launch `image-generator` subagents across missing room prompts in parallel.
+3. **Storage & WebDAV Sync:**
+   - Move/copy rendered artifacts to `~/Nextcloud/DnD/5e/Adventures/Hollow Reach/<Adventure Name>/[cover|a1|a2...].jpg`.
+   - Call `sync` to ensure local davfs2 caches flush to the Nextcloud server.
+4. **Public Share Generation & Insertion:**
+   - Run `python3 /home/grim/github/dm-skills/adventure-tuning/scripts/nextcloud_share.py <path_to_image>` to query or create public direct-download URLs via the Nextcloud OCS API.
+   - Embed the direct links (`![](https://wyrmbox.com/s/<token>/download)`) immediately below each area's read-aloud blockquote and at the top of the adventure module.
+
+---
+
+## 8. Reference Files
 
 - [Canonical Gold-Standard Example: The Dry Well](file:///home/grim/github/dm-skills/hollow-reach-builder/resources/the-dry-well.md)
 - [Dressing, Tactile Mechanics & Adversary Tactics Toolkit](file:///home/grim/github/dm-skills/hollow-reach-builder/resources/dressing-and-tactics.md)
