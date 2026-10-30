@@ -61,6 +61,22 @@ Never touch or reset the following properties:
   - Assign distinct, high-contrast hex border colors from `PALETTE` so players can target them by color (e.g., *"I attack the green one"*).
   - Number names sequentially (`<Name>`, `<Name> 2`, `<Name> 3`) sorted spatially by `(top, left)`.
 
+### D. Visual Style & Footprint Standards
+- **Token Style:** Set `tokenStyleSelect: "virtualMiniCircle"` and `tokenBaseStyleSelect: "default"` (Virtual Mini with Round Base).
+- **HP Visibility:** Set `hidehpbar: True` (Only Show HP Values on Hover).
+- **Footprint Scaling:** Token `size` must match `gridSquares * vpps` (e.g. for standard 70px grid: Medium = 70px, Large = 140px, Huge = 210px).
+
+### E. 2014 vs. 2024 D&D Beyond Monster IDs & Artwork
+- **2014 Monster Manual IDs:** For 2014 5e campaigns, always bind to 2014 Monster Manual IDs (16xxx/17xxx, e.g., Carrion Crawler is `17138`, Commoner is `16829`, Scout is `17007`, Bugbear is `16817`). Never use 2024 Free Rules IDs (5xxxxxx) as they enforce 2024 stat blocks and 2024 artwork.
+- **Artwork Standards:**
+  - `imgsrc`: High-resolution transparent PNG or webp cutout mini (e.g., `https://5e.tools/img/bestiary/tokens/MM/<Creature>.webp` or DDB `largeAvatarUrl`).
+  - `alternativeImages`: Store `[transparent_token_cutout, headshot_jpeg_avatar]`.
+- **Offline / Non-SRD Zero-Spinner Rule:** If a creature is non-SRD or custom, inject canonical interactive HTML stat blocks directly into `data["notes"]` and bind via `statBlock: note_id`. This prevents infinite loading spinners from unauthenticated DDB public API calls.
+
+### F. Room Number Markers
+- **Asset Source:** `https://abovevtt-assets.s3.eu-central-1.amazonaws.com/numbers/{room_num}.png`
+- **Standard Properties:** `tokenStyleSelect: "circle"`, `disableborder: True`, `hidden: True`, `locked: False`, `placeType: "count"`, `hidehpbar: True`.
+
 ---
 
 ## 3. Stat Block Formatting & Idempotency

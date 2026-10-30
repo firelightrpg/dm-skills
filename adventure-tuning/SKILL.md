@@ -29,6 +29,11 @@ Instead of requiring the Dungeon Master to juggle rules from front-matter or rol
    - Every space provides 2 to 3 pre-calculated tactical stunts (swipes, contests, improvised actions) exploiting room geometry, furnishings, and hazards with explicit DCs and tactical benefits.
 6. **Living Adversary Engine**:
    - Creatures are never passive bags of hit points. Each combatant has a pre-rolled activity state, a 2d6 initial reaction profile, a social influence DC matrix, scripted combat strategy, and a **2d6 dynamic bloodied morale response** triggered at $\le$ 50% HP.
+7. **Spatial Economy & Garrison Consolidation**:
+   - Sprawling, repetitive legacy dungeons (e.g., 58 keyed rooms) are aggressively condensed. Consolidate guard garrisons directly adjacent to or overlooking the holding cells, armories, or chokepoints they oversee. Eliminate dead-end filler wings, empty barracks, and redundant corridors to preserve table momentum and simplify VTT line-of-sight geometry.
+8. **Tactical Ambush & Distraction (Social Surprise)**:
+   - For cunning ambush predators (e.g. bugbears, goblins, drow), structure encounters with **bait and pinch** doctrine: visible sentries intentionally engage or draw party focus while hidden flankers wait in total cover. Reward players who explicitly declare watch precautions (*"I keep eyes on the rear/shadows"*), while ruling social surprise for unseen attackers if the party tunnel-visions on the distraction.
+   - **Illumination Warfare:** Monsters with darkvision sitting in darkness automatically detect torchlight/lantern light advancing around corners without rolling Perception. Parties that invest in darkvision magic or stealth gear are rewarded by contesting monsters on even, dark ground.
 
 ---
 
