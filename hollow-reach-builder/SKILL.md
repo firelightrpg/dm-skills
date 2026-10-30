@@ -41,22 +41,32 @@ flowchart TD
 
 ---
 
-## 2. Modes of Operation
+## 2. Modes of Operation & The Map-First Principle
 
-The agent operates in one of two modes based on the DM's needs:
+A great DM workflow begins with a **strong premise**, immediately followed by the **battlemap**. The map's spatial architecture (its chokepoints, elevation changes, chambers, and natural contours) leads and inspires every subsequent encounter, trap, secret, and tactical element.
+
+```mermaid
+flowchart TD
+    A["1. Concept & Band Math (Rumor, Stakes, Tone)"] --> B["2. Battlemap Generation / Selection (AI or UVTT)"]
+    B --> C["3. Map Vision Inspection (Read Chamber Bounds, Doors & Elevation)"]
+    C --> D["4. Keyed Adventure Module Drafting (Markdown Text matches Map)"]
+    C --> E["5. AboveVTT File Co-Generation (Walls, Statblock Notes, Tokens)"]
+    D --> F["Turnkey Adventure Package (Markdown + .abovevtt)"]
+    E --> F
+```
 
 ### Mode A: Interactive Co-Pilot (Default)
-The agent acts as a creative partner, guiding the DM through a snappy, step-by-step 5-phase dialogue:
+The agent acts as a creative partner, guiding the DM through a snappy 5-phase dialogue:
 1. **Intake & Band Math:** DM provides party band/level, player count, and starting rumor/hook. Agent confirms CR caps and time budget.
-2. **Mystery & Dramatic Question:** Agent proposes the 3-act narrative arc (Inciting Incident $\to$ Rising Confrontation $\to$ Resolution) and hidden conspiracy/twist. DM approves or adjusts.
-3. **Map Pairing:** Agent suggests [Watabou Procgen Arcana](https://watabou.github.io/one-page-dungeon/) tags, seeds, layout loops, and room assignments.
-4. **Encounter Drafting:** Agent drafts the 5 rooms one by one (or in paired acts), spotlighting tactile objects, layered secrets, and adversary tactics.
-5. **Server Pack & Buffer Ambush:** Agent generates the optional return ambush and copy-paste Discord aftermath post for the server.
+2. **Concept & Dramatic Question:** Propose the 3-act narrative arc (Inciting Incident $\to$ Rising Confrontation $\to$ Resolution) and hidden conspiracy/twist.
+3. **Map-First Generation / Selection:** Generate or select the top-down battlemap first (via `image-generator` or Watabou/UVTT).
+4. **Visual Geometry Inspection & Keying:** Inspect the rendered map image to determine true chamber dimensions, door openings, stairs, and natural features, assigning Areas A1 through A5 to real visual spaces.
+5. **Turnkey Drafting:** Draft the keyed adventure markdown module and co-generate the AboveVTT export file simultaneously against the real visual geometry.
 
 ### Mode B: Express Generator
 The DM provides a single prompt:
 `Generate adventure: [Band Level, e.g., Greenhorns Lvl 2], [Rumor Hook, e.g., Sunken crypt beneath Miller's Creek], [Tone/Tags, e.g., flooded, ancient, ghouls]`
-The agent immediately outputs the complete, fully keyed adventure document ready to drop into the session notes.
+The agent executes the full Map-First pipeline autonomously: generates concept $\to$ renders battlemap $\to$ inspects map geometry $\to$ drafts markdown module with scene art $\to$ compiles `.abovevtt` file.
 
 ---
 
@@ -219,14 +229,23 @@ When generating an adventure document, use this standardized Markdown schema:
 
 ---
 
-## 6. VTT Integration Checklist (AboveVTT / Foundry)
+## 6. VTT Integration & AboveVTT Schema Compliance
 
-When preparing the adventure for the virtual tabletop:
-1. **Export/Import Isolation:** Build the adventure inside a dedicated subfolder in your prep campaign. Export as `.json` or `.abovevtt`.
-2. **Map Setup:** Import the Procgen Arcana or Watabou image. Set the grid size (standard 5-ft squares).
-3. **Dynamic Lighting & Walls:** Place walls along solid masonry; mark secret doors as secret wall segments.
-4. **Token Placement:** Place tokens from your [`abovevtt-tokens`](file:///home/grim/github/dm-skills/abovevtt-tokens) library for Mobile and Stationary monsters.
-5. **Session Cleanup:** After running the game and logging the AARs, export the played module to your archive folder and delete the folder from the live campaign to keep the VTT lean.
+When generating or preparing `.abovevtt` export files programmatically:
+1. **Base64 Encoding:** The `.abovevtt` file must be a base64-encoded UTF-8 string containing the root campaign JSON.
+2. **Schema Integrity:**
+   - `tokencustomizations` **MUST** be an array `[]`, not a dict `{}` (a dictionary crashes AboveVTT's `Settings.js` `forEach` call).
+   - `soundpads` **MUST** be an empty dict `{}`.
+   - `notes` is a dictionary of statblock notes keyed by UUID, containing valid D&D Beyond HTML creature statblocks equipped with AboveVTT roll attributes (`data-exp`, `data-mod`, `data-rolltype`, `data-actiontype`).
+   - `scenes` must contain a folder object (`itemType: "folder"`, `parentId: "scenesFolder"`) and scenes assigned to `parentId: folder.id`.
+3. **Asset Reachability:**
+   - `player_map` must be a live, reachable direct-download URL (e.g. hosted on Wyrmbox via Nextcloud public share). A 404 or dead link causes AboveVTT's `load_scenemap` to hang permanently on an infinite spinner.
+   - Built-in number tokens (`https://abovevtt-assets.s3.eu-central-1.amazonaws.com/numbers/{n}.png`) require single digits without leading zeroes (`1.png`, `2.png`, not `01.png`), otherwise Amazon S3 returns 403 Forbidden.
+4. **Drawings Layer Alignment:**
+   - Walls: `['line', 'wall', 'rgba(0, 255, 0, 1)', x1, y1, x2, y2, 6, 1, false, '', '']`
+   - Closed Doors: `['line', 'wall', 'rgba(255, 100, 255, 1)', x1, y1, x2, y2, 12, 1, false, '', '']`
+   - Secret Doors: `['line', 'wall', 'rgba(100, 0, 255, 1)', x1, y1, x2, y2, 12, 1, false, '', '']`
+   - All drawing coordinates `(x, y)` must be in pixel space (`grid_square * VPPS`), traced directly against the real battlemap image.
 
 ---
 
