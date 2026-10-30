@@ -22,17 +22,61 @@ This skill automates synchronizing placed placeholder tokens in an exported `.ab
   - `abilityTracker`: dict of tracked charges/spells (e.g. `{"create undead": 3}`)
 - Placed tokens in `scenes[0]["tokens"]` point to these notes via `token["statBlock"] = note_id`, `token["itemId"] = note_id`, `token["itemType"] = "myToken"`, `token["listItemPath"] = "/My Tokens/<Name>"`, and `token["monster"] = "customStat"`.
 - Helper script, resources and data directory:
-  - Token Script: `.agents/skills/abovevtt-tokens/scripts/avtt_tokens.py`
-  - UVTT Importer: `.agents/skills/abovevtt-tokens/scripts/uvtt_to_abovevtt.py`
-  - Mask Importer: `.agents/skills/abovevtt-tokens/scripts/mask_to_abovevtt.py`
+  - Token Script: `abovevtt-tokens/scripts/avtt_tokens.py`
+  - Token Placer & Stylizer: `abovevtt-tokens/scripts/place_dungeon_tokens.py`
+  - UVTT Importer: `abovevtt-tokens/scripts/uvtt_to_abovevtt.py`
+  - Mask Importer: `abovevtt-tokens/scripts/mask_to_abovevtt.py`
   - Canonical Reference Fixtures (from native AboveVTT capture):
-    - `.agents/skills/abovevtt-tokens/resources/orcus_reference.json` (raw token and note dictionary)
-    - `.agents/skills/abovevtt-tokens/resources/orcus_statblock.html` (standalone DDB HTML stat block)
-  - Creature data: `.agents/skills/abovevtt-tokens/data/<adventure>.json`
+    - `abovevtt-tokens/resources/orcus_reference.json` (raw token and note dictionary)
+    - `abovevtt-tokens/resources/orcus_statblock.html` (standalone DDB HTML stat block)
+  - Creature data: `abovevtt-tokens/data/<adventure>.json`
 
 ---
 
-## 2. Token Field Guardrails
+## 2. Battle Map Wall Mask Vectorization (`mask_to_abovevtt.py`)
+
+### A. Why Mask Vectorization vs. Hand-Tracing or AboveVTT Auto-Trace
+- **The Problem with Hand-Tracing:** On complex maps with recessed corridors, thick masonry, or non-standard grid offsets (e.g. Mike Schley or Pintar maps where walls are "squeezed in" slightly or align to half-grid increments), hand-drawing hundreds of vector walls takes hours and frequently introduces gaps.
+- **The Problem with AboveVTT Auto-Trace:** AboveVTT's in-browser image tracer relies on crude client-side marching squares and aggressive Bézier smoothing passes that round off sharp corners, misalign right-angle corridors, and generate thousands of redundant micro-segments that degrade VTT rendering performance.
+- **The Mask Solution:** A high-contrast binary/alpha mask exported from GIMP or Photoshop vectorizes directly into mathematically crisp, orthogonal, grid-snapped vector walls in seconds.
+
+### B. Creating the Wall Mask in GIMP / Photoshop
+1. Open the high-resolution battle map.
+2. Use **Select by Color** (or Fuzzy Select / Magic Wand) on the wall cross-hatching, stone fill, or room floors.
+3. If rooms were selected, invert the selection (**Select → Invert**).
+4. Fill the walls on a new layer with opaque black (`#000000`), keeping the playable room floors and outer void transparent (or solid white).
+5. Export as a PNG (e.g. `map_mask.png`).
+
+### C. Algorithm Pipeline in `mask_to_abovevtt.py`
+1. **Alpha & Thresholding:** Detects alpha channel (`alpha > 128`) or luminance to extract wall strokes.
+2. **Morphological Closing:** Applies a 3x3 structuring element (`cv2.morphologyEx(..., MORPH_CLOSE)`) to seal 1–3px micro-gaps from hand/fuzzy selection.
+3. **Connected Components & Void Exclusion:** Runs `connectedComponentsWithStats` on the inverted mask to identify playable rooms and discard the massive outer border void (component touching `(0,0)`).
+4. **Contour Extraction:** Uses `cv2.findContours(..., RETR_CCOMP)` to capture both outer room perimeters and interior pillars/islands.
+5. **Douglas-Peucker Simplification:** Approximates contours into polygons (`approxPolyDP(..., approx_eps=6.0)`).
+6. **Sub-Grid & Orthogonal Snapping:**
+   - Snaps vertices within tolerance (`snap_tol=8`) to the half-grid (`grid=35`) or full-grid (`grid=70`).
+   - Aligns nearly horizontal or nearly vertical segments ($|\Delta| \le 5\text{px}$) to exact 90-degree right angles.
+7. **Collinear Merging:** Merges contiguous collinear segments into a single continuous wall line.
+8. **AboveVTT Drawing Injection:** Converts to native AboveVTT line records:
+   ```json
+   ["line", "wall", "rgba(0, 255, 0, 1)", x1, y1, x2, y2, 6, 1, false, "", ""]
+   ```
+   Appends `"wallsChanged"` to signal AboveVTT to rebuild its collision and line-of-sight spatial hash.
+
+### D. CLI Usage:
+```bash
+# Generate clean walls from GIMP mask onto an existing scene:
+python3 abovevtt-tokens/scripts/mask_to_abovevtt.py \
+  --mask "Against the Giants_Hill Giants_Dungeon_mask.png" \
+  --abovevtt "Steading of the Hill Giant Chief-2026-10-29.abovevtt" \
+  --scene "Dungeon" \
+  --grid 35 \
+  --write
+```
+
+---
+
+## 3. Token Field Guardrails
 
 When updating tokens, adhere to the following rules:
 
@@ -79,7 +123,7 @@ Never touch or reset the following properties:
 
 ---
 
-## 3. Stat Block Formatting & Idempotency
+## 4. Stat Block Formatting & Idempotency
 
 ### A. Stat Block Schema (`notes`)
 AboveVTT stores custom tokens as notes with identical `plain` and `text` HTML fields. To avoid creating duplicate notes across multiple runs, look up existing notes by title or header link before generating a new UUID:
@@ -165,9 +209,22 @@ token["customStat"] = {
 
 ---
 
-## 4. Execution Workflow
+## 5. Execution Workflow
 
-1. **Dump / Inspect**: Decode `.abovevtt` to JSON or inspect token names, ignoring map labels (`/numbers/` images or pure digits) and lighting effect tokens.
+### A. Batch Token Placement & Scene Styling (`place_dungeon_tokens.py`)
+To populate a scene with room numbers and initial encounter tokens, or to standardize existing tokens:
+```bash
+# Preview changes on a specific scene:
+python3 abovevtt-tokens/scripts/place_dungeon_tokens.py --abovevtt SCENE.abovevtt --scene "Dungeon"
+
+# Populate missing room number markers + starter creatures:
+python3 abovevtt-tokens/scripts/place_dungeon_tokens.py --abovevtt SCENE.abovevtt --scene "Dungeon" --creatures --write
+
+# Apply visual standards (virtualMiniCircle, hidehpbar, palette borders) across all scenes:
+python3 abovevtt-tokens/scripts/place_dungeon_tokens.py --abovevtt SCENE.abovevtt --format-all --write
+```
+
+### B. Custom Stat Block Injection (`avtt_tokens.py`)
 2. **Dry Run & Match Table**:
    Run `avtt_tokens.py` without `--write` to verify token matching and size/border plans:
    ```bash
