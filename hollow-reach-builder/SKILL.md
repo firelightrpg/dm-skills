@@ -233,19 +233,26 @@ When generating an adventure document, use this standardized Markdown schema:
 
 When generating or preparing `.abovevtt` export files programmatically:
 1. **Base64 Encoding:** The `.abovevtt` file must be a base64-encoded UTF-8 string containing the root campaign JSON.
-2. **Schema Integrity:**
+2. **Pure 90° Orthogonal Cartography Standard:**
+   - Always prompt battlemaps as **strictly 90-degree orthogonal overhead bird's-eye view** on a pure black exterior void (zero isometric tilt or vertical perspective).
+   - Reserve 3D perspective / 2.5D isometric rendering exclusively for narrative scene handouts and chat splash art.
+   - Calibrate the canvas resolution to an exact integer grid pitch (e.g. $50\text{ px}$ or $70\text{ px}$ per 5-ft square) with `offsetx: "0"` and `offsety: "0"`, ensuring the grid drops into AboveVTT with zero wizard adjustments.
+3. **Gridline-Centered Wall Drawing (Dungeondraft Style):**
+   - Walls must be drawn **centered directly over the grid boundary lines**, straddling half-stone into the wall.
+   - This ensures line-of-sight rays stop halfway through the masonry, illuminating the stone face for players while completely preventing tokens from clipping into the walls.
+4. **Schema Integrity:**
    - `tokencustomizations` **MUST** be an array `[]`, not a dict `{}` (a dictionary crashes AboveVTT's `Settings.js` `forEach` call).
    - `soundpads` **MUST** be an empty dict `{}`.
    - `notes` is a dictionary of statblock notes keyed by UUID, containing valid D&D Beyond HTML creature statblocks equipped with AboveVTT roll attributes (`data-exp`, `data-mod`, `data-rolltype`, `data-actiontype`).
    - `scenes` must contain a folder object (`itemType: "folder"`, `parentId: "scenesFolder"`) and scenes assigned to `parentId: folder.id`.
-3. **Asset Reachability:**
+5. **Asset Reachability:**
    - `player_map` must be a live, reachable direct-download URL (e.g. hosted on Wyrmbox via Nextcloud public share). A 404 or dead link causes AboveVTT's `load_scenemap` to hang permanently on an infinite spinner.
    - Built-in number tokens (`https://abovevtt-assets.s3.eu-central-1.amazonaws.com/numbers/{n}.png`) require single digits without leading zeroes (`1.png`, `2.png`, not `01.png`), otherwise Amazon S3 returns 403 Forbidden.
-4. **Drawings Layer Alignment:**
+6. **Drawings Layer Syntax:**
    - Walls: `['line', 'wall', 'rgba(0, 255, 0, 1)', x1, y1, x2, y2, 6, 1, false, '', '']`
    - Closed Doors: `['line', 'wall', 'rgba(255, 100, 255, 1)', x1, y1, x2, y2, 12, 1, false, '', '']`
    - Secret Doors: `['line', 'wall', 'rgba(100, 0, 255, 1)', x1, y1, x2, y2, 12, 1, false, '', '']`
-   - All drawing coordinates `(x, y)` must be in pixel space (`grid_square * VPPS`), traced directly against the real battlemap image.
+   - All drawing coordinates `(x, y)` must be in pixel space (`grid_square * VPPS`).
 
 ---
 
