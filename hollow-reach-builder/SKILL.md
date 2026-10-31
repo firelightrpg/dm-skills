@@ -55,6 +55,31 @@ flowchart TD
     E --> F
 ```
 
+### The "Unified Ingress-Dungeon-Egress" Canvas Standard (Single-Scene Lifecycle)
+
+The gold standard for AboveVTT one-shot design is a **single unified operational canvas** that integrates the outdoor entrance staging and the interior dungeon complex onto one contiguous battlemap:
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        UNIFIED SINGLE-SCENE BATTLEMAP CANVAS                           │
+├──────────────────────────────────────────┬─────────────────────────────────────────────┤
+│   EXTERIOR STAGING & AMBUSH ZONE         │   INTERIOR 5-ROOM DUNGEON COMPLEX           │
+│   • Marsh catwalks / skiff dock          │   • Room A2 (Puzzle / Sluice Keep)          │
+│   • Surface trail / mausoleum landing    │   • Room A3 (Trick / Cistern Hazard)        │
+│   • Phase 1: Ingress & Token Staging     │   • Room A4 (Climax / Sepulcher Boss)       │
+│   • Phase 3: Egress & Return Ambush      │   • Room A5 (Secret / Reliquary Vault)      │
+└──────────────────────────────────────────┴─────────────────────────────────────────────┘
+```
+
+#### Why the Unified Canvas is Superior:
+1. **Zero Scene Switching:** The DM never has to switch scene tabs in AboveVTT, wait for texture re-loads, or re-select and migrate player tokens between separate maps. The entire 2-to-4-hour session runs on a single, continuous board.
+2. **Full Lifecycle on One Map:**
+   - **Ingress:** The session opens *in media res* on the outdoor boardwalks, trail, or mausoleum landing where the party arrives (skiff docked, mounts hitched).
+   - **Infiltration & Climax:** The party breaches the threshold doors, delving into the interior chambers (A2–A5) guided by dynamic fog-of-war and line-of-sight walls.
+   - **Egress & Ambush:** When the party secures the relic/charter and falls back to their extraction point, the DM immediately triggers the return buffer ambush on the exterior threshold—using pre-placed, hidden adversaries already on the board.
+3. **Diegetic Immersion & Continuity:** Players physically see their extraction boat or horses waiting outside the doorway while fighting inside; the dungeon feels anchored to the surrounding wilderness rather than floating in a void.
+4. **WebGL & Memory Performance:** Streaming a single 50 px grid canvas (e.g. 1400 × 800 px, ~350 KB) guarantees instant loading and butter-smooth browser performance with zero canvas re-initialization stutters.
+
 ### Mode A: Interactive Co-Pilot (Default)
 The agent acts as a creative partner, guiding the DM through a snappy 5-phase dialogue:
 1. **Intake & Band Math:** DM provides party band/level, player count, and starting rumor/hook. Agent confirms CR caps and time budget.
@@ -252,7 +277,7 @@ When generating or preparing `.abovevtt` export files programmatically:
      - Organic AI-generated dungeon maps naturally exhibit fractional scaling drift from chamber to chamber (e.g. a room rendering at 5.1 squares wide or 6.9 squares tall), causing VTT grids to drift out of sync across different sections of the dungeon.
      - To eliminate drift and ensure zero offset `(0, 0)` across the entire map, **normalize each room independently** before assembling the composite: crop each chamber and resample/scale its dimensions to exact integer multiples of the chosen grid pitch $X \times X$ (e.g., 50 px or 70 px per 5-ft square).
      - Composite all chambers, corridors, and stairs onto the canvas snapped strictly to exact integer grid line boundaries (`x % X == 0`, `y % X == 0`).
-     - Always include an exterior staging space (such as a 10-ft wide descending staircase and surface mausoleum landing, at least 2 × 3 or 2 × 4 squares) so the DM can comfortably drop 5–6 player tokens before entering the first subterranean chamber.
+     - **The Unified Ingress/Dungeon/Egress Canvas Rule:** Always render the exterior staging area (such as the marsh boardwalks, surface trail, or descending mausoleum landing, at least 2 × 3 or 2 × 4 squares) contiguous on the very same canvas as the interior complex. This single-scene layout hosts the entire adventure lifecycle: staging player tokens for ingress, running the interior dungeon crawl, and running the return buffer ambush upon egress without ever switching scenes in AboveVTT.
      - **Recommended Grid Pitch (50 px Standard vs 70–90 px):**
       - While physical tabletop displays and 1:1 monitor zoom often target 70–90 px (~1 physical inch), **50 px per 5-ft square is the recommended gold-standard default for browser VTT play**.
       - In remote browser sessions, players rarely view at 1:1 zoom—they zoom out to 40%–60% to view entire tactical encounter spaces and line-of-sight cones at a glance.
