@@ -242,10 +242,15 @@ audio:
 
 When generating or preparing `.abovevtt` export files programmatically:
 1. **Base64 Encoding:** The `.abovevtt` file must be a base64-encoded UTF-8 string containing the root campaign JSON.
-2. **Pure 90° Orthogonal Cartography Standard:**
+2. **Pure 90° Orthogonal Cartography & Strict Uniform Grid Tiling:**
    - Always prompt battlemaps as **strictly 90-degree orthogonal overhead bird's-eye view** on a pure black exterior void (zero isometric tilt or vertical perspective).
    - Reserve 3D perspective / 2.5D isometric rendering exclusively for narrative scene handouts and chat splash art.
-   - Calibrate the canvas resolution to an exact integer grid pitch (e.g. 50 px or 70 px per 5-ft square) with `offsetx: "0"` and `offsety: "0"`, ensuring the grid drops into AboveVTT with zero wizard adjustments.
+   - **Strict Uniform Integer Grid Tiling Rule ($X \times X$ Snapping):**
+     - Organic AI-generated dungeon maps naturally exhibit fractional scaling drift from chamber to chamber (e.g. a room rendering at 5.1 squares wide or 6.9 squares tall), causing VTT grids to drift out of sync across different sections of the dungeon.
+     - To eliminate drift and ensure zero offset `(0, 0)` across the entire map, **normalize each room independently** before assembling the composite: crop each chamber and resample/scale its dimensions to exact integer multiples of the chosen grid pitch $X \times X$ (e.g., 50 px or 70 px per 5-ft square).
+     - Composite all chambers, corridors, and stairs onto the canvas snapped strictly to exact integer grid line boundaries (`x % X == 0`, `y % X == 0`).
+     - Always include an exterior staging space (such as a 10-ft wide descending staircase and surface mausoleum landing, at least 2 × 3 or 2 × 4 squares) so the DM can comfortably drop 5–6 player tokens before entering the first subterranean chamber.
+     - Set AboveVTT scene parameters to match the exact integer grid pitch with `offsetx: "0"` and `offsety: "0"`, ensuring instant, flawless grid alignment without manual wizard adjustments.
 3. **Gridline-Centered Wall Drawing (Dungeondraft Style):**
    - Walls must be drawn **centered directly over the grid boundary lines**, straddling half-stone into the wall.
    - This ensures line-of-sight rays stop halfway through the masonry, illuminating the stone face for players while completely preventing tokens from clipping into the walls.
