@@ -77,7 +77,57 @@ The One-Page format eliminates multi-paragraph narrative blocks. Every room entr
 
 ---
 
-## 3. Cartography & Map-First Workflow (Neutral Party Benchmark)
+## 3. The Triad Architecture: 5-Room Pacing + Jaquayed Topology + The Hero's Journey of Injustice
+
+An adventure achieves true emotional investment—it gains **"teeth"**—when players don't just clear rooms for gold, but **experience someone else's pain and visceral injustice, and become driven to right the wrong**.
+
+The system synthesizes three layered design frameworks into a unified whole:
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        THE TRIAD ADVENTURE ARCHITECTURE                                │
+├──────────────────────────┬─────────────────────────────┬───────────────────────────────┤
+│ 1. SPATIAL TOPOLOGY      │ 2. PACING ENGINE            │ 3. THE EMOTIONAL SPINE        │
+│ (Jaquaying the Dungeon)  │ (5-Room Functional Model)   │ (Hero's Journey of Injustice) │
+├──────────────────────────┼─────────────────────────────┼───────────────────────────────┤
+│ • Multiple Entrances     │ • Room 1: Entrance/Guardian │ • The Discovered Wound        │
+│ • Loops & Ring Corridors │ • Room 2: Puzzle/Challenge  │ • Unmasking the Lie           │
+│ • Verticality / Balconies│ • Room 3: Trick / Setback   │ • The Complicity Trap         │
+│ • Secret Shortcuts       │ • Room 4: Climax / Ordeal   │ • Confronting the Martyr      │
+│ • Dynamic Faction Pinch  │ • Room 5: Reward/Revelation │ • Restitution & The Road Back │
+└──────────────────────────┴─────────────────────────────┴───────────────────────────────┘
+```
+
+### The 5 Emotional Milestones of the Injustice Spine:
+
+#### 1. The Discovered Wound (Act I: Threshold & Inciting Proof)
+- **The Setup:** The quest begins under a mundane or official pretense (sanitize a vault, retrieve a lost tool chest, repair a floodgate).
+- **The Shock:** Passing the entrance threshold shatters the official narrative. The party encounters tangible, visceral proof of horrific human suffering: a gouged nameplate reading *"COWARD"*, weeping voices repeating dead homesteaders' names, or skeletons with warding spikes driven through their ribs.
+- **The Hook:** The quest ceases to be about a paycheck; the players are confronted with a historic crime that cries out for justice.
+
+#### 2. Unmasking the Lie (Act II: Tests & Trials Through the Loops)
+- **The Exploration:** As the party navigates the spatial loops, puzzles, and environmental hazards, they uncover physical evidence of institutional betrayal.
+- **The Evidence:** Sabotaged gears stamped with a founder's crest, forged treaties, or secret ledgers proving that the town's ruling authorities built their wealth on murder and stolen credit.
+- **The Realization:** The players discover that their employers didn't hire them to fix a problem—they hired them as unwitting cleanup crews to erase evidence.
+
+#### 3. Confronting the Martyr (Act III: The Inmost Cave & The Ordeal)
+- **The Climax:** The "boss" of the dungeon is not a mustache-twirling villain, but a **tormented victim or bound oathkeeper** (Aveline entombed alive, Maeve pinned by an anchor, the Heartwood Woad guarding an alderman's dying wish).
+- **The Catharsis Engine (d6 Lore Revelation Parley):**
+  - When reduced to $\le$ 50% HP (or calmed via respectful dialogue and true names), combat pauses.
+  - The entity breaks down in tears or righteous fury, delivering verbatim dialogue from the **d6 Lore Revelation Table**. They pour out the truth of their murder directly into player dialogue.
+- **The Moral Pivot:** The players are given a profound choice: execute the victim to claim the corrupt bounty, or risk their lives to break the victim's chains and champion their cause.
+
+#### 4. The Weapon of Truth & Restitution (The Seizing of the Sword)
+- **The Reward:** Beyond gold, the central reward in Area 5 is the **instrument of legal or moral restitution**: the unedited founding charter, the secret timber ledger, or the true boundary grant signed in blood.
+- **The Martyr's Blessing:** In gratitude, the cleansed spirit grants the party an enduring ancestral blessing before dissolving into peace.
+
+#### 5. The Road Back & Resurrection (The Beneficiaries' Ambush)
+- **The Confrontation:** The corrupt figures who profit from the lie (Council enforcers, crooked bailiffs, river wardens) ambush the party at their extraction point to confiscate the evidence and ensure the truth dies in the dark.
+- **The Righteous Victory:** Defeating the ambushers, exposing their cowardice, or forcing them to flee cements the players as true folk heroes who didn't just survive a dungeon—they redeemed a piece of the world.
+
+---
+
+## 4. Cartography & Map-First Workflow (Neutral Party Benchmark)
 
 Like `hollow-reach-builder`, every Jaquayed One-Page Dungeon is built using the **Map-First Principle**:
 
@@ -102,7 +152,7 @@ Like `hollow-reach-builder`, every Jaquayed One-Page Dungeon is built using the 
 
 ---
 
-## 4. AboveVTT Turnkey Integration Standard
+## 5. AboveVTT Turnkey Integration Standard
 
 When compiling the companion `.abovevtt` package for an OPD:
 
@@ -119,7 +169,7 @@ When compiling the companion `.abovevtt` package for an OPD:
 
 ---
 
-## 5. Summary Cheat Sheet: When to Use Which Framework
+## 6. Summary Cheat Sheet: When to Use Which Framework
 
 | DM Goal | Recommended Engine |
 | :--- | :--- |

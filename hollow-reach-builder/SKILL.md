@@ -127,6 +127,16 @@ Every adventure treats its environment as a 5-room dungeon—whether it is an an
 | **A5** | **Reward / Revelation** | Act 3: Resolution | The Return Home | Tangible loot protected by a **Layered Trapped/Locked Secret**, plus the critical evidence/item that answers the session's dramatic question and seeds future rumors. |
 | **Bonus** | **Return Ambush** | Epilogue Buffer | Road Back | Optional chokepoint encounter deployed *only* if the party finishes in under 2 hours. Focuses on escape routes and tactical terrain. |
 
+### The Injustice & Restitution Spine (The Soul of the Adventure)
+
+An adventure gains **lasting emotional investment and "teeth"** when players don't just clear rooms for gold, but **experience someone else's pain and visceral injustice, and become driven to right the wrong**:
+
+1. **The Discovered Wound (Room 1 — Crossing the Threshold):** The official rumor or employer's narrative shatters immediately upon arrival. The party discovers visceral proof of human suffering—a defaced knight's cenotaph reading *"COWARD"*, weeping voices repeating dead homesteaders' names, or living roots crying out from burnt sap. The quest ceases to be a job and becomes a personal reckoning.
+2. **Unmasking the Lie (Rooms 2–3 — Tests & Complications):** Navigating the hazards and puzzles unearths concrete physical proof of institutional betrayal—sabotaged gears stamped with a founder's crest, forged treaties, or secret ledgers proving that town authorities built their wealth on murder and stolen credit. The players realize their employers hired them as cleanup crews to erase evidence.
+3. **Confronting the Martyr (Room 4 — The Ordeal):** The climax is not a mindless slugfest against a villain—it is an encounter with a **tormented victim of the founding sin** (Aveline entombed alive, Maeve pinned by the anchor, the Heartwood Woad guarding an alderman's dying wish). Through the **d6 Lore Parley Engine** (triggered at $\le$ 50% HP or via true names), the victim pours out their grief directly into dialogue. The players face a profound moral choice: butcher the victim to claim the corrupt bounty, or risk their lives to break the victim's chains and champion their cause.
+4. **The Weapon of Truth & Restitution (Room 5 — Seizing the Sword):** Beyond gold, the central reward is the **instrument of justice**—the unedited founding charter, the true territorial grant, or the secret timber ledger—that can dismantle the oppressors' power in Wayfare. In gratitude, the cleansed spirit grants the party an enduring ancestral blessing before dissolving into peace.
+5. **The Beneficiaries' Ambush (Buffer Ambush — The Road Back):** The corrupt authorities who profit from the lie (Council enforcers, crooked bailiffs, river wardens) ambush the party at their extraction point to bury the truth. Defeating them cements the players as true folk heroes who didn't just survive a dungeon—they redeemed a piece of the world.
+
 ---
 
 ## 4. Encounter Mechanics & Math Standards
