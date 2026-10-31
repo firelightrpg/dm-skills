@@ -286,15 +286,18 @@ When generating or preparing `.abovevtt` export files programmatically:
 3. **Gridline-Centered Wall Drawing (Dungeondraft Style):**
    - Walls must be drawn **centered directly over the grid boundary lines**, straddling half-stone into the wall.
    - This ensures line-of-sight rays stop halfway through the masonry, illuminating the stone face for players while completely preventing tokens from clipping into the walls.
-4. **Schema Integrity:**
+4. **Adversary & Creature Tokens Default-Hidden Standard:**
+   - **Always Set `"hidden": true` on All Creature Tokens:** Every adversary, monster, guardian, and ambush token placed on an AboveVTT scene must be exported with `"hidden": true` by default.
+   - **Why This Is Critical:** Even when creatures occupy open sightlines, dynamic fog-of-war or player line-of-sight can prematurely flash tokens onto player screens before the DM adjudicates stealth vs passive perception, determines surprise, or delivers descriptive emergence. Starting all adversary tokens hidden grants the DM absolute control over combat timing and prevents accidental spoilers. The DM reveals tokens (`"H"`) when combat or visual confirmation diegetically occurs.
+5. **Schema Integrity:**
    - `tokencustomizations` **MUST** be an array `[]`, not a dict `{}` (a dictionary crashes AboveVTT's `Settings.js` `forEach` call).
    - `soundpads` **MUST** be an empty dict `{}`.
    - `notes` is a dictionary of statblock notes keyed by UUID, containing valid D&D Beyond HTML creature statblocks equipped with AboveVTT roll attributes (`data-exp`, `data-mod`, `data-rolltype`, `data-actiontype`).
    - `scenes` must contain a folder object (`itemType: "folder"`, `parentId: "scenesFolder"`) and scenes assigned to `parentId: folder.id`.
-5. **Asset Reachability:**
+6. **Asset Reachability:**
    - `player_map` must be a live, reachable direct-download URL (e.g. hosted on Wyrmbox via Nextcloud public share). A 404 or dead link causes AboveVTT's `load_scenemap` to hang permanently on an infinite spinner.
    - Built-in number tokens (`https://abovevtt-assets.s3.eu-central-1.amazonaws.com/numbers/{n}.png`) require single digits without leading zeroes (`1.png`, `2.png`, not `01.png`), otherwise Amazon S3 returns 403 Forbidden.
-6. **Drawings Layer Syntax:**
+7. **Drawings Layer Syntax:**
    - Walls: `['line', 'wall', 'rgba(0, 255, 0, 1)', x1, y1, x2, y2, 6, 1, false, '', '']`
    - Closed Doors: `['line', 'wall', 'rgba(255, 100, 255, 1)', x1, y1, x2, y2, 12, 1, false, '', '']`
    - Secret Doors: `['line', 'wall', 'rgba(100, 0, 255, 1)', x1, y1, x2, y2, 12, 1, false, '', '']`
