@@ -125,6 +125,42 @@ The system synthesizes three layered design frameworks into a unified whole:
 - **The Confrontation:** The corrupt figures who profit from the lie (Council enforcers, crooked bailiffs, river wardens) ambush the party at their extraction point to confiscate the evidence and ensure the truth dies in the dark.
 - **The Righteous Victory:** Defeating the ambushers, exposing their cowardice, or forcing them to flee cements the players as true folk heroes who didn't just survive a dungeon—they redeemed a piece of the world.
 
+### The Mystery Engine: Discovery of Intent & Earned Conviction
+
+If the truth is spoon-fed or declared by an NPC in the first room, the narrative feels shallow and unearned. True emotional investment requires **active forensic investigation and the progressive discovery of calculating intent**. When players deduce the conspiracy with their own minds, their righteous conviction carries real moral weight:
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        THE 3-TIER FORENSIC MYSTERY HIERARCHY                           │
+├─────────────────────────┬──────────────────────────────┬───────────────────────────────┤
+│ 1. THE FORENSIC ANOMALY │ 2. THE MODUS OPERANDI        │ 3. THE DISCOVERY OF INTENT    │
+│ (Physical Contradiction)│ (The Mechanical Method)      │ (The Calculating Motive)      │
+├─────────────────────────┼──────────────────────────────┼───────────────────────────────┤
+│ • Pry marks on inside   │ • Warding spike is a siphon  │ • Stolen dynasty legitimacy   │
+│ • Scorch marks run in   │ • Sluice wedged with crest   │ • Port silts up if freed      │
+│ • Barbed thorns, not axe│ • Double-entry tax ledgers   │ • Skimming 40% timber profits │
+│ Action: [Search]        │ Action: [Study]              │ Action: [Influence] & Parley  │
+│ "Someone is lying."     │ "This was an execution."     │ "We are the reckoning."       │
+└─────────────────────────┴──────────────────────────────┴───────────────────────────────┘
+```
+
+#### The 3 Investigative Tiers:
+1. **Tier 1: The Forensic Anomaly (Physical Fact — `[Search]`):**
+   - A physical contradiction that directly disproves the employer's official cover story.
+   - *Examples:* Pry marks on the *inside* of a marble sarcophagus while iron straps are bolted from the *outside*; cinerary urns overturned from within; logging draft horses killed by thorny spines rather than wild beasts.
+   - *Player Deduction:* *"The official story is a complete fabrication."*
+2. **Tier 2: The Modus Operandi (The Method — `[Study]`):**
+   - Uncovering the mechanical or arcane engineering used to commit and conceal the betrayal.
+   - *Examples:* Necrotic glyphs proving the warding spike channels soul energy into town foundations; drainage valves intentionally wedged shut with iron chisels bearing the founder's personal stamp; secret double-entry ledgers hidden behind false coffer panels.
+   - *Player Deduction:* *"This wasn't a tragedy or accident—it was a premeditated institutional execution."*
+3. **Tier 3: The Discovery of Intent (The Motive — `[Influence]` & Lore Parley):**
+   - Unmasking the cold economic or political motive behind the crime through environmental documents and the **d6 Lore Parley Engine**.
+   - *Examples:* The founder buried his partner alive to steal the settlement's charter rights for his lineage; the Council keeps the drowned warden chained because releasing her turns their artificial deep-water harbor back into mud flats; Lady Korena sent loggers to burn her husband's treaty to protect her timber monopoly.
+   - *Player Deduction:* *"Our employer hired us as unwitting janitors to bury their guilt. We will not be their cleanup crew."*
+
+#### The 3-Clue Redundancy Rule (Alexander):
+For every critical deduction, embed at least **3 distinct clues** across different chambers and action lenses (one physical anomaly, one written/mechanical record, and one creature reaction). Investigation never grinds to a halt on a single failed d20 roll; checks determine the *speed and detail* of deduction, never access to the clue itself.
+
 ---
 
 ## 4. Cartography & Map-First Workflow (Neutral Party Benchmark)
