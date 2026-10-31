@@ -279,9 +279,10 @@ When generating adventures with visual scene art:
    - Format prompt: `First person view, Fantasy art, hand painted, atmospheric lighting, moody. [Sensory read-aloud details + architectural features + lighting]`.
 2. **Subagent Generation:**
    - Launch `image-generator` subagents across missing room prompts in parallel.
-3. **Storage & WebDAV Sync:**
-   - Move/copy rendered artifacts to `~/Nextcloud/DnD/5e/Adventures/Hollow Reach/<Adventure Name>/[cover|a1|a2...].jpg`.
-   - Call `sync` to ensure local davfs2 caches flush to the Nextcloud server.
+3. **Bulk-Store Storage & WebDAV Sync Standard:**
+   - Always move/copy rendered artifacts and battlemap images to the **bulk store**: `~/Nextcloud/bulk-store/gaming/DnD/5e/Adventures/Hollow Reach/<Adventure Name>/[cover|battlemap|a1|a2...].jpg`.
+   - **Do NOT store large battlemaps or high-resolution scene art in the primary Nextcloud store** (`~/Nextcloud/DnD/...`); the bulk-store (`~/Nextcloud/bulk-store/gaming/DnD/...`) has abundant capacity and is fully backed up.
+   - Call `sync` and allow a brief pause (2–5 seconds) to ensure local `davfs2` caches flush to the Nextcloud server before querying shares.
 4. **Public Share Generation & Insertion:**
    - Run `python3 /home/grim/github/dm-skills/adventure-tuning/scripts/nextcloud_share.py <path_to_image>` to query or create public direct-download URLs via the Nextcloud OCS API.
    - Embed the direct links (`![](https://wyrmbox.com/s/<token>/download)`) immediately below each area's read-aloud blockquote and at the top of the adventure module.
