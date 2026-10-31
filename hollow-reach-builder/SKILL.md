@@ -245,6 +245,9 @@ When generating or preparing `.abovevtt` export files programmatically:
 2. **Pure 90° Orthogonal Cartography & Strict Uniform Grid Tiling:**
    - Always prompt battlemaps as **strictly 90-degree orthogonal overhead bird's-eye view** on a pure black exterior void (zero isometric tilt or vertical perspective).
    - Reserve 3D perspective / 2.5D isometric rendering exclusively for narrative scene handouts and chat splash art.
+   - **Visual Style Benchmark ("Neutral Party" Aesthetic):**
+     - Aim for a grounded, hand-painted tabletop cartography style inspired by **Neutral Party**: earthy, naturalistic color palettes (mossy slate, dark mud, weathered timbers), subtle atmospheric lighting and weather sheen (rain puddles, soft fog, cold stone), and organic environmental storytelling props (fallen logs, crooked headstones, rusted ironwork).
+     - Keep textures painterly and clean, avoiding hyper-saturated glows or visual clutter that obscures tokens or conflicts with the AboveVTT digital grid.
    - **Strict Uniform Integer Grid Tiling Rule ($X \times X$ Snapping):**
      - Organic AI-generated dungeon maps naturally exhibit fractional scaling drift from chamber to chamber (e.g. a room rendering at 5.1 squares wide or 6.9 squares tall), causing VTT grids to drift out of sync across different sections of the dungeon.
      - To eliminate drift and ensure zero offset `(0, 0)` across the entire map, **normalize each room independently** before assembling the composite: crop each chamber and resample/scale its dimensions to exact integer multiples of the chosen grid pitch $X \times X$ (e.g., 50 px or 70 px per 5-ft square).
