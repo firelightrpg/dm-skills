@@ -142,11 +142,19 @@ Every keyed room must include at least three tactile objects from the [Dressing 
 When generating an adventure document, use this standardized Markdown schema:
 
 ```markdown
+---
+audio:
+  ambient: "ambient dark"
+  combat: "battle"
+  triumph: "triumph"
+---
+
 # [Adventure Title]
 
 **Location:** [Sub-region west/east/south of Wayfare]  
 **Band & Level:** [e.g. Greenhorns (APL 2)] | **Estimated Play Time:** 2–4 Hours  
-**Map Link:** [Watabou Procgen Arcana URL or seed tags]  
+**Audio Control:** [▶ Ambient](http://localhost:26796/trigger?playlist=ambient+dark) | [⚔ Combat](http://localhost:26796/trigger?playlist=battle) | [🏆 Triumph](http://localhost:26796/trigger?playlist=triumph)  
+**Map Link:** [Wyrmbox direct download URL or seed tags]  
 
 ---
 
@@ -159,7 +167,7 @@ When generating an adventure document, use this standardized Markdown schema:
 ---
 
 ## In Media Res Opening
-> [2–3 evocative sentences placing the party directly at the threshold of the site, already geared up after fast traveling from Wayfare.]
+> [2–3 evocative, scripted sentences placing the party directly at the threshold of the site, already geared up after fast traveling from Wayfare.]
 
 ---
 
@@ -171,11 +179,10 @@ When generating an adventure document, use this standardized Markdown schema:
 - **Terrain & Lighting:** [Footing, light level, difficult terrain, water depth].
 - **Acoustics & Bleed:** [Ambient sound, propagation to adjacent rooms, stealth modifiers].
 
-> **Sensory Read-Aloud:**
-> - **Sight:** [Shapes, lighting, movement, architectural features — zero spoilers].
-> - **Sound:** [Echoes, water drips, distant groaning, silence].
-> - **Smell:** [Silt, rot, damp ozone, dry dust].
-> - **Touch:** [Drafts, temperature, dampness, vibrations].
+> **Read-Aloud:**
+> [Scripted, flowing narrative prose in complete sentences (following the TSR / WotC gold-standard like White Plume Mountain). Naturally integrate the chamber dimensions and architectural footprint into the first sentence—e.g. "This long stone chamber stretches 30 feet wide and 70 feet south beneath a heavy 15-foot vaulted ceiling..." Weave sight, sound, smell, and temperature directly into the description without bulleted lists or spoilers.]
+
+![](https://wyrmbox.com/s/<token>/download)
 
 **Gated Observations:**
 - **Passive Perception [DC]:** [Tangible clue or subtle sensory warning].
