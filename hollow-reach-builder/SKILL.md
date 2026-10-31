@@ -250,7 +250,11 @@ When generating or preparing `.abovevtt` export files programmatically:
      - To eliminate drift and ensure zero offset `(0, 0)` across the entire map, **normalize each room independently** before assembling the composite: crop each chamber and resample/scale its dimensions to exact integer multiples of the chosen grid pitch $X \times X$ (e.g., 50 px or 70 px per 5-ft square).
      - Composite all chambers, corridors, and stairs onto the canvas snapped strictly to exact integer grid line boundaries (`x % X == 0`, `y % X == 0`).
      - Always include an exterior staging space (such as a 10-ft wide descending staircase and surface mausoleum landing, at least 2 × 3 or 2 × 4 squares) so the DM can comfortably drop 5–6 player tokens before entering the first subterranean chamber.
-     - Set AboveVTT scene parameters to match the exact integer grid pitch with `offsetx: "0"` and `offsety: "0"`, ensuring instant, flawless grid alignment without manual wizard adjustments.
+     - **Recommended Grid Pitch (50 px Standard vs 70–90 px):**
+      - While physical tabletop displays and 1:1 monitor zoom often target 70–90 px (~1 physical inch), **50 px per 5-ft square is the recommended gold-standard default for browser VTT play**.
+      - In remote browser sessions, players rarely view at 1:1 zoom—they zoom out to 40%–60% to view entire tactical encounter spaces and line-of-sight cones at a glance.
+      - A 50 px grid pitch keeps a complete 30 × 20 room complex at a lightweight 1500 × 1000 px (< 400 KB), ensuring instant WebDAV asset streaming, zero WebGL canvas memory spikes or rendering stutter, and maximum tactical clarity.
+    - Set AboveVTT scene parameters to match the exact integer grid pitch with `offsetx: "0"` and `offsety: "0"`, ensuring instant, flawless grid alignment without manual wizard adjustments.
 3. **Gridline-Centered Wall Drawing (Dungeondraft Style):**
    - Walls must be drawn **centered directly over the grid boundary lines**, straddling half-stone into the wall.
    - This ensures line-of-sight rays stop halfway through the masonry, illuminating the stone face for players while completely preventing tokens from clipping into the walls.
