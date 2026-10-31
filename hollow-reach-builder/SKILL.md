@@ -10,8 +10,8 @@ This skill automates the creation of modular, high-tension, 2-to-4-hour one-shot
 It synthesizes:
 - **Johnn Four's 5-Room Dungeon** overlaid with **Syd Field's Three-Act Screenwriting Structure** and an abridged **Hero's Journey**.
 - **Justin Alexander's Dynamic Dungeons**: Adversary Rosters with active mobility stances (*Patrol*, *Mobile*, *Stationary*) and 1-in-6 adjacent room alert triggers.
-- **The 30/20 Combat Rule**: Hard capstone encounter CR math ($CR \le 1.5 \times \text{APL}$), tactical enemy behaviors informed by `themonstersknow.com`, and a $\le$ 50% HP bloodied morale parley/retreat engine.
-- **Tactile Challenge Design**: Traps, locks, and secrets engineered as multi-layered, interactive physical scenes (Clue $\to$ Interaction $\to$ Teamwork/Solution) using the **3-Clue Rule**, with ability checks serving as safety nets rather than progress-blocking gates.
+- **The 30/20 Combat Rule**: Hard capstone encounter CR math (CR ≤ 1.5 × APL), tactical enemy behaviors informed by `themonstersknow.com`, and a ≤ 50% HP bloodied morale parley/retreat engine.
+- **Tactile Challenge Design**: Traps, locks, and secrets engineered as multi-layered, interactive physical scenes (Clue → Interaction → Teamwork/Solution) using the **3-Clue Rule**, with ability checks serving as safety nets rather than progress-blocking gates.
 - **Strict Session Economy**: Designed specifically to wrap in **2 to 4 hours** with **at most 4 primary encounters** (ideally 2 combat + 2 exploration/puzzle/roleplay), plus 1 optional return ambush buffer.
 
 ---
@@ -37,7 +37,7 @@ flowchart TD
 3. **Pacing Guarantee:** Keep the primary adventure to **4 encounters maximum** (no more than 3 combat; target 2 combat + 2 exploration/puzzle/social).
 4. **Teamwork Over Heroics:** Every puzzle, obstacle, and secret requires cooperation or pairs (e.g., hold a lever while another prying a stone; shield cover while picking a lock). Success or failure is party-wide.
 5. **Emergent Server Storytelling:** Adventure outcomes must ripple into Wayfare. Player writeups in `#after-action-reports` grant inspiration and directly inspire the next band's rumors.
-6. **Clean VTT Workflow:** Build in a separate blank campaign/folder $\to$ export as `.json` $\to$ import into the main campaign on game day $\to$ archive and delete the folder after the game.
+6. **Clean VTT Workflow:** Build in a separate blank campaign/folder → export as `.json` → import into the main campaign on game day → archive and delete the folder after the game.
 
 ---
 
@@ -58,7 +58,7 @@ flowchart TD
 ### Mode A: Interactive Co-Pilot (Default)
 The agent acts as a creative partner, guiding the DM through a snappy 5-phase dialogue:
 1. **Intake & Band Math:** DM provides party band/level, player count, and starting rumor/hook. Agent confirms CR caps and time budget.
-2. **Concept & Dramatic Question:** Propose the 3-act narrative arc (Inciting Incident $\to$ Rising Confrontation $\to$ Resolution) and hidden conspiracy/twist.
+2. **Concept & Dramatic Question:** Propose the 3-act narrative arc (Inciting Incident → Rising Confrontation → Resolution) and hidden conspiracy/twist.
 3. **Map-First Generation / Selection:** Generate or select the top-down battlemap first (via `image-generator` or Watabou/UVTT).
 4. **Visual Geometry Inspection & Keying:** Inspect the rendered map image to determine true chamber dimensions, door openings, stairs, and natural features, assigning Areas A1 through A5 to real visual spaces.
 5. **Turnkey Drafting:** Draft the keyed adventure markdown module and co-generate the AboveVTT export file simultaneously against the real visual geometry.
@@ -66,7 +66,7 @@ The agent acts as a creative partner, guiding the DM through a snappy 5-phase di
 ### Mode B: Express Generator
 The DM provides a single prompt:
 `Generate adventure: [Band Level, e.g., Greenhorns Lvl 2], [Rumor Hook, e.g., Sunken crypt beneath Miller's Creek], [Tone/Tags, e.g., flooded, ancient, ghouls]`
-The agent executes the full Map-First pipeline autonomously: generates concept $\to$ renders battlemap $\to$ inspects map geometry $\to$ drafts markdown module with scene art $\to$ compiles `.abovevtt` file.
+The agent executes the full Map-First pipeline autonomously: generates concept → renders battlemap → inspects map geometry → drafts markdown module with scene art → compiles `.abovevtt` file.
 
 ---
 
@@ -98,7 +98,7 @@ Every adventure treats its environment as a 5-room dungeon—whether it is an an
 | **A1** | **Entrance / Guardian** | Act 1: Setup | Crossing the Threshold | Establishes atmosphere, *in media res* stakes, and tests party readiness with a low/mid combat sentry or environmental barrier. |
 | **A2** | **Puzzle / Challenge** | Act 2: Rising Action | Tests & Trials | Non-combat encounter engaging the whole party (Athletics, Arcana, Social, Tools). Implements the **3-Clue Rule**. |
 | **A3** | **Trick / Setback** | Act 2: Complication | The Approach / Complication | A sudden revelation, hazard, betrayal evidence, or resource drain that subverts expectations and raises the stakes for the climax. |
-| **A4** | **Climax / Big Conflict** | Act 3: Confrontation | The Ordeal | The capstone battle. High tactical difficulty with terrain favoring the villain. Enemy uses `themonstersknow.com` tactics and checks bloodied morale at $\le$ 50% HP. |
+| **A4** | **Climax / Big Conflict** | Act 3: Confrontation | The Ordeal | The capstone battle. High tactical difficulty with terrain favoring the villain. Enemy uses `themonstersknow.com` tactics and checks bloodied morale at ≤ 50% HP. |
 | **A5** | **Reward / Revelation** | Act 3: Resolution | The Return Home | Tangible loot protected by a **Layered Trapped/Locked Secret**, plus the critical evidence/item that answers the session's dramatic question and seeds future rumors. |
 | **Bonus** | **Return Ambush** | Epilogue Buffer | Road Back | Optional chokepoint encounter deployed *only* if the party finishes in under 2 hours. Focuses on escape routes and tactical terrain. |
 
@@ -107,8 +107,10 @@ Every adventure treats its environment as a 5-room dungeon—whether it is an an
 ## 4. Encounter Mechanics & Math Standards
 
 ### 1. The 30/20 Combat Formula
-$$\text{Max Capstone CR} = \frac{3}{2} \times \text{APL} \quad (\text{Average Party Level})$$
-$$\text{Guardian CR} = 1.0 \times \text{APL} \quad \text{to} \quad 1.25 \times \text{APL}$$
+```text
+Max Capstone CR = 1.5 × APL (Average Party Level)
+Guardian CR     = 1.0 × APL to 1.25 × APL
+```
 
 - **Greenhorns (APL 1–2):** Guardian CR 1–2; Boss CR 3–4 (accompanied by 2–3 CR 1/8 minions).
 - **Adventurers (APL 3–4):** Guardian CR 2–3; Boss CR 5–6 (with tactical cover and terrain hazards).
@@ -120,16 +122,16 @@ Adversaries are placed on a dynamic roster with explicit action stances:
 - **Mobile (Default):** Stationed in a room, but rolls a **1-in-6 check** every exploration turn to wander into adjacent corridors, and automatically moves to investigate loud combat or thunder spells after 1–2 rounds.
 - **Stationary:** Bound to a specific chamber (chained beast, bound undead, automaton). Does not pursue beyond its room threshold.
 
-### 3. Bloodied Morale Engine ($\le$ 50% HP)
+### 3. Bloodied Morale Engine (≤ 50% HP)
 *No intelligent creature wants to die.* When an intelligent foe drops below 50% HP:
 - It uses its turn to parley, surrender, or negotiate (offering loot, secrets, or defection).
 - If cornered with no way out, it seeks a desperate tactical withdrawal or uses environmental hazards (dropping portcullises, kicking over oil slicks).
 
 ### 4. Tactile Layered Secret, Lock & Trap Architecture
 Avoid flat, single-roll DC checks. Every significant obstacle uses the **3-part physical challenge model**:
-- **Layered Secret:** Clue (visible scuff marks or mortar gaps) $\to$ Interaction (recessed stud or counterweight) $\to$ Solution (two characters acting simultaneously).
-- **Layered Lock:** Clue (smudges on specific rivets or tactile hinge play) $\to$ Interaction (testing pressure points) $\to$ Solution (tactile sequence requiring two hands or multiple tools).
-- **Layered Trap:** Descriptive Clue (giving paving stone, slit in ceiling) $\to$ Trigger Condition (releasing weight triggers spears) $\to$ Player Agency Choices (counterweight, wedge, dodge dive, jump clear).
+- **Layered Secret:** Clue (visible scuff marks or mortar gaps) → Interaction (recessed stud or counterweight) → Solution (two characters acting simultaneously).
+- **Layered Lock:** Clue (smudges on specific rivets or tactile hinge play) → Interaction (testing pressure points) → Solution (tactile sequence requiring two hands or multiple tools).
+- **Layered Trap:** Descriptive Clue (giving paving stone, slit in ceiling) → Trigger Condition (releasing weight triggers spears) → Player Agency Choices (counterweight, wedge, dodge dive, jump clear).
 - *Rule for Dice Rolls:* Player character ability checks are **lifelines** for when players are stuck, not prerequisite gates to interact.
 
 ### 5. Mandatory Room Dressing (3+ Interactive Items)
@@ -243,7 +245,7 @@ When generating or preparing `.abovevtt` export files programmatically:
 2. **Pure 90° Orthogonal Cartography Standard:**
    - Always prompt battlemaps as **strictly 90-degree orthogonal overhead bird's-eye view** on a pure black exterior void (zero isometric tilt or vertical perspective).
    - Reserve 3D perspective / 2.5D isometric rendering exclusively for narrative scene handouts and chat splash art.
-   - Calibrate the canvas resolution to an exact integer grid pitch (e.g. $50\text{ px}$ or $70\text{ px}$ per 5-ft square) with `offsetx: "0"` and `offsety: "0"`, ensuring the grid drops into AboveVTT with zero wizard adjustments.
+   - Calibrate the canvas resolution to an exact integer grid pitch (e.g. 50 px or 70 px per 5-ft square) with `offsetx: "0"` and `offsety: "0"`, ensuring the grid drops into AboveVTT with zero wizard adjustments.
 3. **Gridline-Centered Wall Drawing (Dungeondraft Style):**
    - Walls must be drawn **centered directly over the grid boundary lines**, straddling half-stone into the wall.
    - This ensures line-of-sight rays stop halfway through the masonry, illuminating the stone face for players while completely preventing tokens from clipping into the walls.
