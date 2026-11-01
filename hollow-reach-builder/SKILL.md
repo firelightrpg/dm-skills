@@ -250,7 +250,22 @@ thus the max a 10th-level party should face is 15 (3/2 × APL).
 * **Higher Capstones & Earned Allies:** If the capstone CR exceeds this threshold, provide clear, diegetic ways for the PCs to recruit allies or turn factions—**avoid deus ex machina (no eagles!)**.
 * **Watch Out for Character Killers:** Beware of swingy, low-level TPK monsters (e.g., banshees, shadows, intellect devourers, bodaks) whose abilities can insta-kill PCs regardless of HP pool.
 
-### 3. Circumstances that Favor the Enemy (Tactical Advantage Checklist)
+### 3. The Game-Day APL Dial (Modular Follower & Minion Scaling)
+In an open-table or West Marches campaign, party strength fluctuates significantly within a band (e.g., Greenhorns ranges from 3 fragile Level 1 PCs up to 5 seasoned Level 3 PCs with subclasses and feats). 
+
+**Never tune an encounter as a rigid, monolithic stat block to the upper end.** Doing so risks an unfair TPK on a low-level table, while tuning it down makes it trivial for veteran characters. Instead, use the **Game-Day APL Dial**:
+
+* **The Anchor + Followers Architecture:** Build encounters with one **Anchor Creature** (the boss or guardian) accompanied by **Modular Followers / Minions (CR 1/8 to 1/2)**.
+* **Pre-Placing Hidden in AboveVTT:** All modular follower tokens are pre-placed on the VTT canvas set to `hidden: True`. The DM dials the encounter at game time simply by choosing how many tokens to unhide:
+  - **APL 1 (or 3 PCs):** Anchor only (or Anchor + 1 minion). Lower single-target spike damage.
+  - **APL 2 (Standard 4 PCs):** Anchor + 2 minions. Balanced action economy.
+  - **APL 3 (or 5+ PCs):** Anchor + 3–4 minions (or deploy 2 minions as a round 2 flanking reinforcement).
+* **Bookend Combat Pacing (Start with a Bang, Climax at Extraction):**
+  - **Opening Bang (Room 1):** Immediate combat establishes high energy and physical stakes *in media res*.
+  - **The Delve & Social Core (Rooms 2–4):** Puzzles, forensics, hazard navigation, and a deep social parley with the anchor villain/martyr.
+  - **The Guaranteed Climax (Extraction Ambush):** Even if the party uses brilliant diplomacy, empathy, or stealth to peacefully resolve the boss without rolling initiative, **the session never fizzles into an anticlimax**. The return ambush at the extraction threshold ensures a climactic, hard-fought battle to earn their way home.
+
+### 4. Circumstances that Favor the Enemy (Tactical Advantage Checklist)
 To make encounters dangerous without inflating hit point sponges, always build in circumstances that favor the enemy:
 - **Hidden to Gain Surprise:** Ambushes from ceiling fissures, submerged mud, or false walls.
 - **Terrain Advantage:** Three-quarters cover, arrow slits, natural bottlenecks, or elevation perches.
