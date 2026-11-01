@@ -71,6 +71,16 @@ The gold standard for AboveVTT one-shot design is a **single unified operational
 └──────────────────────────────────────────┴─────────────────────────────────────────────┘
 ```
 
+#### Canvas Sizing & Viewport Standards (50 px Grid Pitch):
+* **Baseline "Zero-Scroll" Scale (28 × 16 squares / 140' × 80'):**
+  - Dimensions: $1400 \times 800\text{ px}$ at $50\text{ px / square}$.
+  - Ideal for tight, claustrophobic delves, sunken caverns, crypts, and vertical shafts.
+  - **The Zero-Scroll Advantage:** Fits comfortably on 1080p and 1440p displays with AboveVTT sidebars open. Players and DMs never need to pan, zoom, or search for off-screen tokens during combat.
+* **Expanded Scale (Up to Double / 56 × 32 squares / 280' × 160'):**
+  - Dimensions: Up to $2800 \times 1600\text{ px}$ at $50\text{ px / square}$.
+  - Ideal for expansive outdoor wilderness approaches, wide marshlands, forest glades, and multi-tier surface ruins that require long-range archery (150–300 ft) and mobile running retreats.
+  - Preserves the clean 16:9/16:10 aspect ratio and strict integer grid alignment without blurry texture scaling.
+
 #### Why the Unified Canvas is Superior:
 1. **Zero Scene Switching:** The DM never has to switch scene tabs in AboveVTT, wait for texture re-loads, or re-select and migrate player tokens between separate maps. The entire 2-to-4-hour session runs on a single, continuous board.
 2. **Full Lifecycle on One Map:**
