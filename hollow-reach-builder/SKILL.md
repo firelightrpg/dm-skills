@@ -228,36 +228,67 @@ For every critical deduction, embed at least **3 distinct clues** across differe
 
 ## 4. Encounter Mechanics & Math Standards
 
-### 1. The 30/20 Combat Formula
+### 1. Encounter Scene Structure & Pillar Fluidity
+* **Scene-Based Pacing:** Run each encounter like a story or a scene, with a clear **objective, beginning, middle, and end**. Every encounter features a **locale, conflict, and reward** (treasure, survival, leads, or clues).
+* **Locale Inside Locale:** Just as the adventure has a master locale, each encounter has its own distinct micro-locale (e.g., a swamp hiding a submerged cave mouth, or vertical staging up a ruined mill tower).
+* **Three-Pillar Fluidity:** The conflict may use one or more of the Three Pillars—often driven by player choice:
+  - Enemies employ traps or obstacles against the party, or use hostages for barter.
+  - Encounters frequently transition between pillars: an enemy can be reasoned with (Combat → Social), an allied NPC turns hostile (Social → Combat), or disarming an arcane trick/trap releases captives or neutralizes an environmental threat (Exploration → Social).
+
+### 2. Number and Difficulty of Combat Encounters (The 30/20 Rule)
+If an adventure only has **two combat encounters**, they should be **middle to upper band with circumstances that favor the enemy**:
+* **Greenhorns (Levels 1–3):** CR 2–3 guardian; CR 4–5 primary villain (with minions).
+* **Blooded (Levels 4–6):** CR 3–5 guardian; CR 6–8 primary villain (with tactical lair advantage).
+
 ```text
 Max Capstone CR = 1.5 × APL (Average Party Level)
-Guardian CR     = 1.0 × APL to 1.25 × APL
+Formula: The max CR for a single creature against a 20th-level party is 30;
+thus the max a 10th-level party should face is 15 (3/2 × APL).
 ```
 
-- **Greenhorns (APL 1–2):** Guardian CR 1–2; Boss CR 3–4 (accompanied by 2–3 CR 1/8 minions).
-- **Adventurers (APL 3–4):** Guardian CR 2–3; Boss CR 5–6 (with tactical cover and terrain hazards).
-- **Veterans (APL 5–7):** Guardian CR 5–6; Boss CR 7–9 (with dynamic lair actions or reinforcements).
+* **Multiple Enemies:** Use encounter multipliers for multiple enemies and cross-check the adjusted XP/CR against the 30/20 cap.
+* **Higher Capstones & Earned Allies:** If the capstone CR exceeds this threshold, provide clear, diegetic ways for the PCs to recruit allies or turn factions—**avoid deus ex machina (no eagles!)**.
+* **Watch Out for Character Killers:** Beware of swingy, low-level TPK monsters (e.g., banshees, shadows, intellect devourers, bodaks) whose abilities can insta-kill PCs regardless of HP pool.
 
-### 2. Adversary Action Groups & Dynamic Checks
-Adversaries are placed on a dynamic roster with explicit action stances:
-- **Patrol:** Moves on a predetermined circuit between 2 rooms.
-- **Mobile (Default):** Stationed in a room, but rolls a **1-in-6 check** every exploration turn to wander into adjacent corridors, and automatically moves to investigate loud combat or thunder spells after 1–2 rounds.
-- **Stationary:** Bound to a specific chamber (chained beast, bound undead, automaton). Does not pursue beyond its room threshold.
+### 3. Circumstances that Favor the Enemy (Tactical Advantage Checklist)
+To make encounters dangerous without inflating hit point sponges, always build in circumstances that favor the enemy:
+- **Hidden to Gain Surprise:** Ambushes from ceiling fissures, submerged mud, or false walls.
+- **Terrain Advantage:** Three-quarters cover, arrow slits, natural bottlenecks, or elevation perches.
+- **Environmental Immunity:** Hazardous terrain the enemy is immune to (e.g., ghouls fighting in poison gas or water elementals in rushing rapids).
+- **Teamwork & Convergence:** Multiple creatures converge from different angles and use pack tactics or focus fire.
+- **Ingress/Egress Flanking:** Enemies utilize secondary tunnels or secret doors to slip behind the party's backline.
+- **Barricaded Ranged Threats:** Ranged adversaries firing from behind a locked portcullis or chasm ledge.
+- **Villain-Operated Traps:** A hidden pit trap, deadfall, or floodgate the villain can trigger while the players stand on it.
 
-### 3. Bloodied Morale Engine (≤ 50% HP)
-*No intelligent creature wants to die.* When an intelligent foe drops below 50% HP:
-- It uses its turn to parley, surrender, or negotiate (offering loot, secrets, or defection).
-- If cornered with no way out, it seeks a desperate tactical withdrawal or uses environmental hazards (dropping portcullises, kicking over oil slicks).
+### 4. Morale, Surrender & Defection (≤ 50% HP)
+* **No intelligent creature wants to die.** Once a smart creature has been seriously injured (losing more than half its hit points), it attempts to reason with its foes:
+  - Offers treasure, hidden keys, or secret ledgers in exchange for its life.
+  - Betrays its employer with critical intelligence.
+  - **Allies may defect:** Intelligent underlings or mercenaries may switch sides or flee the moment the boss is bloodied.
+* Use `themonstersknow.com` to inform enemy tactics and predatory behaviors.
 
-### 4. Tactile Layered Secret, Lock & Trap Architecture
-Avoid flat, single-roll DC checks. Every significant obstacle uses the **3-part physical challenge model**:
-- **Layered Secret:** Clue (visible scuff marks or mortar gaps) → Interaction (recessed stud or counterweight) → Solution (two characters acting simultaneously).
-- **Layered Lock:** Clue (smudges on specific rivets or tactile hinge play) → Interaction (testing pressure points) → Solution (tactile sequence requiring two hands or multiple tools).
-- **Layered Trap:** Descriptive Clue (giving paving stone, slit in ceiling) → Trigger Condition (releasing weight triggers spears) → Player Agency Choices (counterweight, wedge, dodge dive, jump clear).
-- *Rule for Dice Rolls:* Player character ability checks are **lifelines** for when players are stuck, not prerequisite gates to interact.
+### 5. Multi-Class Exploration Challenges & The 3-Clue Rule
+With layouts that feature loops and alternate ingresses, to keep the highlight encounter from occurring too soon, use **locks, secrets, puzzles, riddles, spells, tricks, and traps to ensure the capstone comes last**:
+* **The 3-Clue Rule:** Every secret, riddle, or investigative deduction must have at least **3 distinct clues** (one physical anomaly, one mechanical/written record, one NPC/creature tell).
+* **Avoid TPK Traps:** Hazards and traps that only serve to do flat damage are unsatisfying. Combining traps and puzzles with tangible rewards or reveals is far more engaging.
+* **Engage the Entire Party:** The best challenges require cooperation across multiple character roles—not just the rogue picking a lock or the wizard casting *identify*. Incorporate at least two of the following into major obstacles:
+  - *Persuasion:* Convincing a reluctant spirit or prisoner to share the combination.
+  - *Athletics:* Climbing a treacherous overhang to reach an overhead lever, or prying a rusted blast door.
+  - *Acrobatics:* Crossing a roaring sluice or chasm with pole jumps or tightrope balance.
+  - *Arcana / Spells / Ranged Stunts:* Using *Mage Hand* or an expert bowshot to trip a lever through a locked iron portcullis.
+  - *Sensory / Environmental Triggers:* Runes that can only be read with Darkvision, or glyphs revealed only by exposure to flame or water.
+* **Encourage Creativity (Default to Yes):** Always be open to alternate player solutions instead of stifling ingenuity.
 
-### 5. Mandatory Room Dressing (3+ Interactive Items)
-Every keyed room must include at least three tactile objects from the [Dressing & Tactics Toolkit](file:///home/grim/github/dm-skills/hollow-reach-builder/resources/dressing-and-tactics.md) (e.g., barrels, sacks of flour, lantern oil jugs, chains, cauldrons, heavy furniture, mirrors, brazier coals).
+### 6. Interactive Dressing Catalog (Exploitable Mundane Props)
+Every keyed chamber must include at least **three seemingly mundane items** that players can weaponize, ignite, topple, or use for cover:
+
+* 🪑 **Common Furniture & Market Goods:** Barrels & crates (cover, rolling hazards, barricades); tables & benches (flipped for cover, bridging gaps); rugs & tapestries (concealing pits, smothering fire, dropping caltrops); curtains & dividers (concealment, smoke screens); mirrors (distraction, periscopes, light reflection); carts & wheelbarrows (mobile cover, noisy diversions).
+* 🌾 **Storage & Trade Goods:** Sacks of grain/flour/rice (burst for obscurement clouds or flour explosions); lantern oil jugs (flame hazards, slippery slicks); coils of rope/netting (tripwires, dropping from above); blankets & cloth rolls (smothering flames, muffling alarm bells).
+* 🔧 **Workshop / Smithy:** Anvils (heavy obstacles, gravity deadfalls); tongs & tools (improvised weapons, handling hot objects); hot coals & forges (shoving zones for fire damage); buckets of water (quenching fires, creating blinding steam).
+* 🍗 **Tavern / Kitchen:** Skewers & knives (thrown weapons, door wedges); cauldrons (scalding liquids, concealing items); kegs (bowling attacks, rolling barriers); spices & chili powder (thrown into eyes for blinding).
+* 📚 **Library / Study:** Bookshelves (toppled for barricades or crushing lines); ink pots (obscuring vision, slippery flagstones); scroll racks (flammable barriers, improvised clubs); candles & braziers (fire sources, thrown fire hazards).
+* 🏰 **Religious / Ritual Space:** Censers (reach flails, smoke screens); holy water basins (splashed for radiant damage vs. undead/fiends); statues (toppled onto foes or mechanisms); prayer mats & kneelers (concealing pressure plates).
+* ❄️ **Cold Climate / Outdoors:** Icicles & stalactites (dropped as falling weapons); snowbanks & mudbanks (concealing movement or traps); firewood piles (barricades, instant bonfires); frozen buckets/pools (shattered for slippery ice zones).
 
 ---
 
