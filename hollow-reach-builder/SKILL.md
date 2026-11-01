@@ -83,6 +83,13 @@ The gold standard for AboveVTT one-shot design is a **single unified operational
   - An expanded canvas gives long-range snipers, scouts, and fast skirmishers (Monks, Rogues, mounted PCs) meaningful space to exploit kiting, staggered retreats, and long-range sightlines before melee closes.
   - Preserves the clean 16:9/16:10 aspect ratio and strict integer grid alignment without blurry texture scaling.
 
+#### Multi-Tier Surfaces & Vertical Tactical Elevation (Balconies, Catwalks, Mezzanines):
+Battlemaps gain massive tactical depth when chambers feature **multi-tier surfaces** (raised wooden catwalks, stone balconies, mine scaffolding, hanging mill races, elevated daises, or cliff ledges):
+* **Asymmetric Cover & Sightlines:** Creatures on an elevated tier firing down over wooden railings or stone balustrades gain half cover (+2 AC) or three-quarters cover (+5 AC), while creatures below must expose themselves to aim upward.
+* **Vertical Forced Movement (Gravity as a Weapon):** Shoving, bull-rushing, or blast-pushing foes off catwalks deals standard falling damage ($1\text{d}6$ bludgeoning per $10\text{ ft}$) and leaves the target prone on the floor below—setting them up for melee allies.
+* **Chokepoint Control & Ladder Mechanics:** Catwalks accessed by ladders or narrow stairs create natural defensive bottlenecks. Players or foes can sever ropes, topple ladders (Athletics DC 10), or dump boiling oil/flour sacks from above onto bottlenecked climbers.
+* **Plunging Strikes & Traversal Stunts:** High perches enable cinematic player actions: swinging across on cargo pulleys (DC 12 Acrobatics), plunging down with a descending strike to split falling damage with an enemy, or using *Misty Step* / *Levitate* to bypass ground hazards.
+
 #### Why the Unified Canvas is Superior:
 1. **Zero Scene Switching:** The DM never has to switch scene tabs in AboveVTT, wait for texture re-loads, or re-select and migrate player tokens between separate maps. The entire 2-to-4-hour session runs on a single, continuous board.
 2. **Full Lifecycle on One Map:**
