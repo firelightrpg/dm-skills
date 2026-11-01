@@ -78,7 +78,9 @@ The gold standard for AboveVTT one-shot design is a **single unified operational
   - **The Zero-Scroll Advantage:** Fits comfortably on 1080p and 1440p displays with AboveVTT sidebars open. Players and DMs never need to pan, zoom, or search for off-screen tokens during combat.
 * **Expanded Scale (Up to Double / 56 × 32 squares / 280' × 160'):**
   - Dimensions: Up to $2800 \times 1600\text{ px}$ at $50\text{ px / square}$.
-  - Ideal for expansive outdoor wilderness approaches, wide marshlands, forest glades, and multi-tier surface ruins that require long-range archery (150–300 ft) and mobile running retreats.
+  - Ideal for expansive outdoor wilderness approaches, wide marshlands, forest glades, and multi-tier surface ruins.
+  - **Counteracting Range Compression:** Small maps create "range compression"—they inadvertently buff 30-ft close-range abilities (thrown daggers, short cones, 30-ft cantrips) because everything is within a single Dash, while completely neutralizing long-range investments (Longbows at 150/600 ft, Heavy Crossbows, *Eldritch Spear*, Spell Sniper). 
+  - An expanded canvas gives long-range snipers, scouts, and fast skirmishers (Monks, Rogues, mounted PCs) meaningful space to exploit kiting, staggered retreats, and long-range sightlines before melee closes.
   - Preserves the clean 16:9/16:10 aspect ratio and strict integer grid alignment without blurry texture scaling.
 
 #### Why the Unified Canvas is Superior:
