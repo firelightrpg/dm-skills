@@ -11,14 +11,27 @@ Unlike the linear, 3-act progression of the 5-Room Dungeon (which excels at tigh
 
 ---
 
-## 1. Core Philosophy: The Jaquayed Topology
+## 1. Core Philosophy: Everything's a Dungeon & Enforced Order Jaquaying
 
-A Jaquayed dungeon is a **non-linear spatial web** rather than a branching tree or railroaded corridor. If the party encounters an impassable door, deadly trap, or overwhelming monster, they never hit a dead end—they can always **circle around, flank, or bypass**.
+### Everything's a Dungeon
+Remember, **everything's a dungeon**—whether it's a small town, forest glade, abandoned farm, flooded sinkhole, or ruined mill. Any locale can be treated with 5-room dungeon pacing.
+
+### Description, Locale, and Layout
+* **Stage & Environment:** Set the tone, stage, and environment: terrain, lighting, ambience, flora, fauna, and the location’s history and current use (natural, wonder, ruin, or hybrid).
+* **Single Consistent Encounter Space:** Whether it’s one large open area or several connected chambers, the layout should support **one consistent encounter**. Even if there are several enemy groups, it should be difficult to engage them completely independently—actions echo and alert adjacent areas, most often leading to one large, dynamic conflict. In a lair, base, or hideout, enemies actively use terrain to their tactical advantage.
+* **No Wasted Background:** History and current use should be obvious from the description, from rumors, or discovered through exploration. **Don't bother writing a background that won't see gameplay, can't be discovered, or has no impact on the layout.**
+* **Band Appropriate:** Locales and challenges must match the party's band tier (Greenhorns L1–3, Blooded L4–6).
+
+### Enforced Order in Jaquayed Topologies
+A Jaquayed dungeon is a **non-linear spatial web** rather than a branching tree or railroaded corridor. However, **order must still be enforced**:
+* **Gating the Capstone:** Use maps with multiple ingress points and loops to avoid linear encounters, but use **locks, secrets, puzzles, riddles, spells, tricks, and traps to ensure the capstone of a quest doesn’t come first**.
+* **Reward the Back Door:** Reward players for scouting and finding the best way to approach, like a "back door" or secret entrance that makes gaining surprise trivial.
+* **Negative Space (Breathing Room):** Exploration is the continuous baseline. It never hurts to have spaces to search that don't always try to jump scare. Giving players room to inspect clues and breathe without immediate combat makes subsequent jump scares and combat spikes significantly more prominent.
 
 ```mermaid
 flowchart TD
     E1["Entrance A: Main Gate"] --> R1["Area 1: Guarded Vestibule"]
-    E2["Entrance B: Sinkhole / Shaft"] --> R4["Area 4: Lower Chasm"]
+    E2["Entrance B: Secret Backdoor / Flume"] -->|Gained Surprise| R4["Area 4: Lower Chasm"]
     
     R1 --> R2["Area 2: Western Gallery"]
     R1 --> R3["Area 3: Eastern Hall"]
@@ -33,8 +46,8 @@ flowchart TD
     R7 -->|Ladder / Drop| R4
     R6 --> R4
     
-    %% Secret Shortcut
-    R2 -.->|Secret Door / Seam| R8["Area 8: Boss Sanctum"]
+    %% Secret Shortcut (Gated)
+    R2 -.->|Locked Seam / Puzzle Key| R8["Area 8: Boss Sanctum"]
     R4 --> R8
     R8 --> R9["Area 9: Ancient Vault"]
 ```
@@ -53,6 +66,49 @@ flowchart TD
    - Hidden doors, movable flagstones, or drainage grates that connect early sectors directly to deeper sanctums, rewarding thorough perception and investigation.
 5. **Dynamic Faction Mobility (Active Cross-Traffic):**
    - Because loops exist, adversaries do not stand still in isolated rooms. When alarms sound, patrol group A advances down the western gallery while group B loops through the eastern hall to pin the intruders in a pincer movement.
+
+---
+
+### The 6 Core 5-Room Flow Archetypes
+Classic flow notation:
+* **E** = Entrance
+* **P** = Puzzle or roleplay challenge
+* **S** = Setback or twist
+* **B** = Big battle (Capstone conflict)
+* **R** = Reward or revelation
+
+```text
+💠 LINEAR: E ──► P ──► S ──► B ──► R
+
+🐓 ROOSTER:
+      P
+       \
+  E ──► S ──► B
+       /
+      R
+
+❌ CROSS:
+      P
+      │
+  S ──E ── B
+      │
+      R
+
+🕊️ FLYING V:
+  B           R
+   \         /
+    S ───── P
+         │
+         E
+
+🔀 DECISION:
+        B
+  E ──► P ──► S
+        R
+
+🔁 WRONG WAY:
+  S ──► E ──► P ──► B ──► R
+```
 
 ---
 

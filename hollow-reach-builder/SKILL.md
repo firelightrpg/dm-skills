@@ -97,26 +97,77 @@ The agent executes the full Map-First pipeline autonomously: generates concept �
 
 ## 3. Structural Mapping Blueprint
 
-Every adventure treats its environment as a 5-room dungeon—whether it is an ancient reliquary, a flooded cavern, an abandoned surface farm, or a cursed swamp glade.
+### Everything's a Dungeon
+Remember, **everything's a dungeon**—whether it's a small town, forest glade, abandoned farm, flooded cavern, or ruined mill. Any locale can be treated as a 5-room-dungeon.
 
+### Description, Locale, and Layout
+* **Stage & Environment:** Set the tone, the stage, and the environment, including terrain, lighting, ambience, flora, fauna, and the location’s history and current use (whether it’s a natural environment, a wonder, a ruin, or a hybrid).
+* **Single Consistent Encounter Space:** Whether it’s one large open area or several connected chambers, the layout should support **one consistent encounter**. Even if there are several enemy groups, it should be difficult to engage them completely independently—actions alert adjacent zones, most often leading to one large, dynamic conflict. If this is a lair, base of operations, or hideout, enemies must actively use the terrain to their tactical advantage.
+* **No Wasted Background:** The history and current use may be obvious from the initial description, from previous rumors, or discovered through exploration. **Don't bother writing a background that won't see gameplay, can't be discovered, or has no impact on the layout.**
+* **Band Appropriate:** Locales and challenges must match the party's band tier (Greenhorns L1–3, Blooded L4–6).
+
+### Enforced Order in Jaquayed Maps
+Use maps with **multiple ingress points and loops** to avoid railroaded encounters, but use **locks, secrets, puzzles, riddles, spells, tricks, and traps to ensure the capstone of a quest doesn't come first**. 
+* **Reward Tactical Scouting:** Reward players for finding the best way to approach, like a "back door" or secret chimney/drainage entrance that makes gaining surprise trivial.
+* **Breathing Room (Negative Space):** Include spaces to search that don't immediately trigger jump scares or ambushes. Giving players room to inspect forensic clues, rotted machinery, and environmental textures without pressure makes subsequent jump scares and combat spikes significantly more prominent.
+
+---
+
+### The 6 Core 5-Room Flow Archetypes
+Classic abbreviations:
+* **E** = Entrance (Threshold / Sentry)
+* **P** = Puzzle or roleplay challenge
+* **S** = Setback or twist
+* **B** = Big battle (Capstone conflict)
+* **R** = Reward or revelation
+
+```text
+💠 LINEAR (Classic sequential crawl)
+E ──► P ──► S ──► B ──► R
+
+🐓 ROOSTER (Divergent probe & reward branch)
+      P
+       \
+  E ──► S ──► B
+       /
+      R
+
+❌ CROSS (Central hub with 4 cardinal wings)
+      P
+      │
+  S ──┼── B
+      │
+      R
+  (Entrance E at center hub)
+
+🕊️ FLYING V (Twin investigative wings converging on capstones)
+  B           R
+   \         /
+    S ───── P
+         │
+         E
+
+🔀 DECISION (Forked climax based on player stance or choice)
+        B
+  E ──► P ──► S
+        R
+
+🔁 WRONG WAY (Immediate cold-open setback before true entry)
+  S ──► E ──► P ──► B ──► R
 ```
-[Room 1: Entrance / Guardian] ─── (Threshold / Inciting Incident)
-              │
-              ▼
-[Room 2: Puzzle / Challenge]   ─── (Crossing Threshold / 3-Clue Discovery)
-              │
-              ▼
-[Room 3: Trick / Setback]      ─── (Rising Action / The Twist / Betrayal Revealed)
-              │
-              ▼
-[Room 4: Climax / Big Battle]  ─── (The Ordeal / Confrontation / Dramatic Question Answered)
-              │
-              ▼
-[Room 5: Reward / Revelation]  ─── (The Return / Layered Trapped-Locked Secret + Server Hook)
-              │
-              ▼ (Optional: If Session < 2 Hours)
-[Bonus Buffer: Return Ambush]  ─── (Tactical transit chokepoint before Wayfare)
-```
+
+| Flow Archetype | Best Suited For | How Jaquaying & Gating Enforce Order |
+|---|---|---|
+| **💠 Linear** | Tight subterranean shafts, aqueducts, linear crypt descents. | Elevation drops or collapsed portcullises enforce forward drive; secret loop connects R back to E. |
+| **🐓 Rooster** | Bandit lighthouses, mill towers, fortified homesteads. | The main thoroughfare drives E → S → B, but scouting reveals an upper loft or side flume with the puzzle (P) or hidden safe (R). |
+| **❌ Cross** | Central town squares, crossroads, ruined keeps, domed temple hubs. | E drops into a central atrium. Locks or environmental hazards block B until clues in P and S are solved. |
+| **🕊️ Flying V** | Dual-faction sites, bifurcated cave systems, flooded quarries. | E splits into two wings: one leads through the setback (S) to the boss (B); the other through the puzzle/parley (P) to the cache (R). |
+| **🔀 Decision** | Moral dilemmas, faction bases, contested relics. | S presents the moral or tactical fork: side with the victim (unlocking R peacefully) or execute the contract (triggering B). |
+| **🔁 Wrong Way** | Trapped fake entrances, ambushed approaches, collapsed bridges. | The players trigger the setback (S) before ever setting foot in the true entrance (E)—e.g., sinkhole collapses beneath their camp. |
+
+---
+
+### 5-Room Structural Matrix
 
 | Room | 5-Room Archetype | 3-Act Structure | Hero's Journey | Mechanical Purpose |
 |---|---|---|---|---|
