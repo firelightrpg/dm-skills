@@ -471,22 +471,38 @@ When generating or preparing `.abovevtt` export files programmatically:
 
 When generating adventures with visual scene art:
 
-1. **Prompt Formulation:**
-   - Extract the room's boxed read-aloud text, spatial scale, and lighting.
-   - Format prompt: `First person view, Fantasy art, hand painted, atmospheric lighting, moody. [Sensory read-aloud details + architectural features + lighting]`.
+1. **Scene Artwork After Every Boxed Text Rule:**
+   - Every keyed encounter area **must** feature a dedicated, evocative 16:9 widescreen scene illustration placed immediately following its read-aloud boxed text.
+   - In addition, include an **establishing cover splash** at the top of the module and a **climactic extraction/ambush scene** for the egress confrontation.
+   - Format prompt: `Cinematic concept art, dark fantasy realism, hand painted, atmospheric lighting, moody, 16:9 widescreen composition. [Sensory read-aloud details + architectural features + lighting]`.
 2. **Subagent Generation:**
    - Launch `image-generator` subagents across missing room prompts in parallel.
 3. **Bulk-Store Storage & WebDAV Sync Standard:**
-   - Always move/copy rendered artifacts and battlemap images to the **bulk store**: `~/Nextcloud/bulk-store/gaming/DnD/5e/Adventures/Hollow Reach/<Adventure Name>/[cover|battlemap|a1|a2...].jpg`.
+   - Always move/copy rendered artifacts and battlemap images to the **bulk store**: `~/Nextcloud/bulk-store/gaming/DnD/5e/Adventures/Hollow Reach/<Adventure Name>/[cover|battlemap|scene_area1...].jpg`.
    - **Do NOT store large battlemaps or high-resolution scene art in the primary Nextcloud store** (`~/Nextcloud/DnD/...`); the bulk-store (`~/Nextcloud/bulk-store/gaming/DnD/...`) has abundant capacity and is fully backed up.
    - Call `sync` and allow a brief pause (2–5 seconds) to ensure local `davfs2` caches flush to the Nextcloud server before querying shares.
-4. **Public Share Generation & Insertion:**
+4. **Public Share Generation with Sync Retry:**
    - Run `python3 /home/grim/github/dm-skills/adventure-tuning/scripts/nextcloud_share.py <path_to_image>` to query or create public direct-download URLs via the Nextcloud OCS API.
+   - **WebDAV Latency Handling:** Because `davfs2` caches writes locally and pushes asynchronously, scripts creating public shares must implement retry logic (up to 5–10 attempts with 2s sleeps) if the OCS API returns `HTTP Error 404: Not Found` while the upload completes.
    - Embed the direct links (`![](https://wyrmbox.com/s/<token>/download)`) immediately below each area's read-aloud blockquote and at the top of the adventure module.
 
 ---
 
-## 8. Reference Files
+## 8. Strict Map Token & Module Key Correspondence Standard
+
+To prevent player/DM confusion and maintain seamless VTT alignment:
+1. **1:1 Number Matching:** If the battlemap uses numeric room tokens (`1, 2, 3, 4, 5`), the adventure module section headings **MUST** use the exact same numbers: `### Area 1...`, `### Area 2...`, `### Area 3...`, etc.
+2. **5-Room Functional Role Annotation:** Append the 5-room archetype role to each heading in parentheses:
+   - `### Area 1. [Locale Name] (E: Entrance / Guardian)`
+   - `### Area 2. [Locale Name] (P1: Puzzle / Mechanical Challenge)`
+   - `### Area 3. [Locale Name] (P2 / S: Setback / Hazard)`
+   - `### Area 4. [Locale Name] (B: Climax / Ordeal)`
+   - `### Area 5. [Locale Name] (R: Reward / Revelation)`
+3. **Never Mix Key Systems:** Do not use `Area A1` in text while using token `1` on the map. Consistency across tokens, text, and notes is strictly mandatory.
+
+---
+
+## 9. Reference Files
 
 - [Canonical Gold-Standard Example: The Dry Well](file:///home/grim/github/dm-skills/hollow-reach-builder/resources/the-dry-well.md)
 - [Dressing, Tactile Mechanics & Adversary Tactics Toolkit](file:///home/grim/github/dm-skills/hollow-reach-builder/resources/dressing-and-tactics.md)

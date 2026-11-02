@@ -172,19 +172,22 @@ Use the canonical structure captured from AboveVTT tokens:
   <span data-dicenotation="1d20+19" data-rolltype="to hit" data-rollaction="Wand of Orcus">+19</span>
   <span data-dicenotation="3d8+8" data-rolltype="damage" data-rollaction="Wand of Orcus" data-rolldamagetype="bludgeoning">(3d8 + 8)</span>
   ```
-- **Note Object Properties**:
+- **Note Object Properties (Click-to-Open Requirement)**:
+  AboveVTT's token click handler explicitly looks up `notes[token.statBlock]`. The note object MUST contain:
   ```python
   notes[note_id] = {
       "id": note_id,
+      "title": creature_title,  # CRITICAL: title must exist for search/header lookup
       "player": True,
-      "statBlock": True,
+      "statBlock": True,        # CRITICAL: statBlock must be True for click handler
       "plain": html,
       "text": html,
       "abilityTracker": ability_tracker or {},
   }
   ```
+  The HTML string MUST be wrapped in standard DDB containers (`<div id="content" class="main content-container"><section class="primary-content" role="main"><div class="monster-details">...`) so AboveVTT can bind action/save roll buttons.
 
-### C. Token Combat Wiring
+### C. Token Combat Wiring & Critical Schema Guardrails
 ```python
 token["statBlock"] = note_id
 token["itemId"] = note_id
@@ -206,6 +209,17 @@ token["customStat"] = {
     "5": {"mod": cha_mod, "save": cha_save},
 }
 ```
+
+#### Schema Guardrails:
+1. **Conditions Array Guardrail (`TypeError: conditions.map is not a function`):**
+   - NEVER initialize `token["conditions"] = {}` (empty dict). AboveVTT's Token renderer calls `this.options.conditions.map(...)`.
+   - Conditions must either be an array/list `[]` or completely omitted.
+2. **Integer Grid Type Standard (`gridType: 1`):**
+   - Scene grid type must be integer `gridType: 1` (Square 5-ft).
+   - Never set `gridType: "square"` (string), which causes AboveVTT to fall back to vertical hex grids.
+3. **DM Hand-Drawn Elements Preservation Rule:**
+   - When synchronizing or regenerating an AboveVTT scene, always check for user exports (e.g. `<Adventure>-YYYY-MM-DD.abovevtt`).
+   - If user exports exist, preserve their hand-drawn line-of-sight walls/doors (`scene["drawings"]`) and manual token coordinates rather than wiping them with automated approximations.
 
 ---
 
